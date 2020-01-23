@@ -1,2 +1,5 @@
-# projet-web-2020-sebastien-Thorekt
-projet-web-2020-sebastien-Thorekt created by GitHub Classroom
+# CineCritique-projet-web
+CineCritique-projet-web created by GitHub Classroom
+
+
+Auteurs: Robin ORY, Raphael LAVOIE, Clement DEVOUCOUX, Clematine ALLARD
