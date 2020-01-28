@@ -1,0 +1,9 @@
+body{
+    background-color: darkgray;
+    color: white;
+}
+
+h1:hover{
+    font-style: italic;
+    cursor: pointer;
+}
