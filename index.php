@@ -3,23 +3,29 @@
 
     include "Ressources/Connexion.php";
 
-    $REQUETE_SQL_TEST = "SELECT * FROM Film WHERE id = 1";
-    $requeteTest = $basededonnees->prepare($REQUETE_SQL_TEST);
-    $requeteTest->execute();
-    $film = $requeteTest->fetch();
-    print_r($film);
+    $REQUETE_SQL_LISTE_FILM = "SELECT * FROM Film";
+    $requeteFilms = $basededonnees->prepare($REQUETE_SQL_LISTE_FILM);
+    $requeteFilms->execute();
+    $films = $requeteFilms->fetchAll();
+
 ?>
 
 
+
+
+
+<header>
+    <h1>Bienvenue!</h1>
+</header>
 <div class="container ">
-
-    <h1 class="grey-text text-darken-3">Bienvenue!<h1>
-    <div class="card-panel grey lighten-4">
-        <span class="brown-text text-darken-3">This is a card panel with dark blue text</span>
-    </div>
-<div>
-
-
+    <ul>
+        <?php foreach($films as $film){
+            //print_r($films["id"]);
+            echo("<li class=\"tooltip\"><a href=\"vues/film.php?film=". $film['nom'] ."\"><img class=\"thumbnail\" src=\"Ressources/images/PlaceHolder.jpg\"> <span class=\"tooltiptext\">" . $film['nom'] . "</a></span></li>");
+        }
+        ?>
+    </ul>
+</div>
 <?php
     include "footer.php";
     ?>
