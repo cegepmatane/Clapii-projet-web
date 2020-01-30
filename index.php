@@ -1,5 +1,11 @@
 <?php
+    include "Ressources/Connexion.php";
 
+    $REQUETE_SQL_TEST = "SELECT * FROM Film WHERE id = 1";
+    $requeteTest = $basededonnees->prepare($REQUETE_SQL_TEST);
+    $requeteTest->execute();
+    $film = $requeteTest->fetch();
+    print_r($film);
 ?>
 
 <!doctype html>
