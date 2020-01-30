@@ -3,10 +3,10 @@
 
     include "Ressources/Connexion.php";
 
-    $REQUETE_SQL_TEST = "SELECT * FROM Film";
-    $requeteTest = $basededonnees->prepare($REQUETE_SQL_TEST);
-    $requeteTest->execute();
-    $films = $requeteTest->fetchAll();
+    $REQUETE_SQL_LISTE_FILM = "SELECT * FROM Film";
+    $requeteFilms = $basededonnees->prepare($REQUETE_SQL_LISTE_FILM);
+    $requeteFilms->execute();
+    $films = $requeteFilms->fetchAll();
     
 ?>
 
@@ -27,7 +27,7 @@
     <ul>
         <?php foreach($films as $film){
             //print_r($films["id"]);
-            echo("<li class=\"tooltip\"><img class=\"thumbnail\" src=\"Ressources/images/PlaceHolder.jpg\"> <span class=\"tooltiptext\">" . $film['nom'] . "</span></li>");
+            echo("<li class=\"tooltip\"><a href=\"vues/film.php?film=". $film['nom'] ."\"><img class=\"thumbnail\" src=\"Ressources/images/PlaceHolder.jpg\"> <span class=\"tooltiptext\">" . $film['nom'] . "</a></span></li>");
         }
         ?>    
     </ul>
