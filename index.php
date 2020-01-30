@@ -11,10 +11,12 @@
 ?>
 
 
-<div>
+<div class="container ">
 
-    <h1>Bienvenue!<h1>
-    
+    <h1 class="grey-text text-darken-3">Bienvenue!<h1>
+    <div class="card-panel grey lighten-4">
+        <span class="brown-text text-darken-3">This is a card panel with dark blue text</span>
+    </div>
 <div>
 
 
