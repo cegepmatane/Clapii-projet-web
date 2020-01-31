@@ -1,7 +1,7 @@
 <?php
-    include "../header.php";
+    include "./Ressources/header.php";
 
-    include "../Ressources/Connexion.php";
+    include "./Ressources/Connexion.php";
     $nomFilm = $_GET['film'];
     $nomFilm = "'".$nomFilm."'";
     //print_r($nomFilm);
