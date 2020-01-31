@@ -1,3 +1,32 @@
 <?php
-
+    include "../Ressources/header.php";
+    include "../Ressources/Connexion.php"; 
 ?>
+
+<form action="traitement-ajouter-film.php" method="post">
+		
+			<div>
+				<label for="nom">Nom</label>
+				<input type="text" name="nom" id="nom" value="Nom"/>			
+			</div>
+
+			<div>
+				<label for="date">Date (aaaa-mm-jj)</label>
+				<input type="text" name="date" id="date" value="2020-01-01"/>			
+			</div>
+			
+
+						
+			<div>
+				<label for="synopsis">Synopsis</label>
+				<input type="text" name="synopsis" id="synopsis" value="Synopsis"/>			
+			</div>
+			
+			
+			
+			<input type="submit" value="Enregistrer">
+</form>
+
+<?php
+    include "../Ressources/footer.php";
+    ?>

@@ -19,6 +19,8 @@
     </ul>
 </div>
 
+<a href="./ajouter-film.php" class="brown lighten-2 btn"><i class="material-icons right">backup</i>Ajouter un film</a>
+
 
 <?php
     include "../Ressources/footer.php";
