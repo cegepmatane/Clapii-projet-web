@@ -15,11 +15,20 @@
 <body class="brown lighten-4">
  <nav>
     <div class="nav-wrapper grey lighten-4 ">
-          <a href="#" class="brand-logo brown-text text-darken-3">Logo</a>
+          <a href="index.php" class="brand-logo brown-text text-darken-3">Logo</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li ><a  class="brown-text text-darken-3" href="sass.html">Sass</a></li>
-            <li ><a  class="brown-text text-darken-3" href="badges.html">Components</a></li>
-            <li ><a  class="brown-text text-darken-3" href="collapsible.html">JavaScript</a></li>
+            <li ><a  class="brown-text text-darken-3" href="index.php">Accueil</a></li>
+            <li ><a  class="brown-text text-darken-3" href="films.php">Films</a></li>
+            <li ><form>
+                 <div class="input-field">
+                    <input id="search" type="search" required>
+                    <label class="label-icon " for="search"><i class="material-icons brown-text text-darken-3">search</i></label>
+                    <i class="material-icons brown-text text-darken-3">close</i>
+                  </div>
+             </form></li >
+            <li ><i class="large account_circle "></i></li >
+
           </ul>
+
     </div>
   </nav>
