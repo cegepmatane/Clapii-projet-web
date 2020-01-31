@@ -8,6 +8,10 @@
     height: 100px;
 }
 
+.barre-recherche{
+    height: 64px;
+}
+
 .tooltip-film {
     position: relative;
     display: inline-block;

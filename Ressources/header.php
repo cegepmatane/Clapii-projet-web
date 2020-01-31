@@ -19,7 +19,7 @@
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li ><a  class="brown-text text-darken-3" href="index.php">Accueil</a></li>
             <li ><a  class="brown-text text-darken-3" href="films.php">Films</a></li>
-            <li ><form>
+            <li class="barre-recherche"><form>
                  <div class="input-field">
                     <input id="search" type="search" required>
                     <label class="label-icon " for="search"><i class="material-icons brown-text text-darken-3">search</i></label>
