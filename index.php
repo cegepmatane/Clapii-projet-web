@@ -17,11 +17,11 @@
 <header>
     <h1>Bienvenue!</h1>
 </header>
-<div class="container ">
+<div class="container">
     <ul>
         <?php foreach($films as $film){
             //print_r($films["id"]);
-            echo("<li class=\"tooltip\"><a href=\"./film.php?film=". $film['nom'] ."\"><img class=\"thumbnail\" src=\"Ressources/images/PlaceHolder.jpg\"> <span class=\"tooltiptext\">" . $film['nom'] . "</a></span></li>");
+            echo("<li class=\"tooltip-film\"><a href=\"./film.php?film=". $film['nom'] ."\"><img class=\"thumbnail\" src=\"Ressources/images/PlaceHolder.jpg\"> <span class=\"tooltiptext\">" . $film['nom'] . "</a></span></li>");
         }
         ?>
     </ul>
