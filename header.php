@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
-<body style="background-color: #94618E">
+<body class="brown lighten-4">
 
  <nav>
     <div class="nav-wrapper grey lighten-4 ">
