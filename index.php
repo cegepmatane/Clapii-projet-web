@@ -11,8 +11,12 @@ include "./Ressources/header.php";
             <div class="card grey lighten-4">
                 <div class="card-content brown-text text-darken-3">
                     <span class="card-title">Les derniers films</span>
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
+                    <div class="collection">
+                        <a href="#!" class="collection-item brown-text text-darken-3">Alvin</a>
+                        <a href="#!" class="collection-item brown-text text-darken-3">Alvin</a>
+                        <a href="#!" class="collection-item brown-text text-darken-3">Alvin</a>
+                        <a href="#!" class="collection-item brown-text text-darken-3">Alvin</a>
+                    </div>
                 </div>
                 <div class="card-action">
                     <a href="#">Plus de résultats</a>
