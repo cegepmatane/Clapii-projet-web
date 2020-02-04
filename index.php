@@ -3,6 +3,8 @@ include "./Ressources/header.php";
 
 include "./Ressources/Connexion.php";
 
+require('./SQL/filmSQL.php');
+
 $requeteFilms = $basededonnees->prepare(SELECT_ALL_FILM);
 $requeteFilms->execute();
 $films = $requeteFilms->fetchAll();
