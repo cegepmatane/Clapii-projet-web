@@ -3,8 +3,7 @@
 
     include "./Ressources/Connexion.php";
 
-    $REQUETE_SQL_LISTE_FILM = "SELECT * FROM Film";
-    $requeteFilms = $basededonnees->prepare($REQUETE_SQL_LISTE_FILM);
+    $requeteFilms = $basededonnees->prepare(SELECT_ALL_FILM);
     $requeteFilms->execute();
     $films = $requeteFilms->fetchAll();
 ?>
