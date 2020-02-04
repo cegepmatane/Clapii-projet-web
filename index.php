@@ -1,7 +1,11 @@
 <?php
 include "./Ressources/header.php";
 
+include "./Ressources/Connexion.php";
 
+$requeteFilms = $basededonnees->prepare(SELECT_ALL_FILM);
+$requeteFilms->execute();
+$films = $requeteFilms->fetchAll();
 ?>
 <div class="container">
     <div class="row">
@@ -11,12 +15,11 @@ include "./Ressources/header.php";
             <div class="card grey lighten-4">
                 <div class="card-content brown-text text-darken-3">
                     <span class="card-title">Les derniers films</span>
-                    <div class="collection">
-                        <a href="#!" class="collection-item brown-text text-darken-3">Alvin</a>
-                        <a href="#!" class="collection-item brown-text text-darken-3">Alvin</a>
-                        <a href="#!" class="collection-item brown-text text-darken-3">Alvin</a>
-                        <a href="#!" class="collection-item brown-text text-darken-3">Alvin</a>
-                    </div>
+                    <ul class="collection">
+                        <?php foreach ($films as $film) {
+                            include("./Vues/Fragment/filmAccueil.php");
+                        } ?>
+                    </ul>
                 </div>
                 <div class="card-action">
                     <a href="#">Plus de résultats</a>
