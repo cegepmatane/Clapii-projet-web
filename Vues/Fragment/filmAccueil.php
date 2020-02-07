@@ -13,7 +13,7 @@ if(!isset($film['synopsis'])){
         <i class="material-icons circle">highlight_off</i>
     <?php
     endif;?>
-    <span class="title"><?php echo $film['nom'] ?></span>
-    <p><?php echo $film['synopsis'] ?></p>
-    <a href="../../film.php?film="<?php echo $film['nom'] ?> class="secondary-content"><i class="material-icons">arrow_forward</i></a>
+    <span class="title"><?= $film['nom'] ?></span>
+    <p><?= $film['synopsis'] ?></p>
+    <a href="../../film.php?film="<?= $film['nom'] ?> class="secondary-content"><i class="material-icons">arrow_forward</i></a>
 </li>

@@ -26,7 +26,7 @@
                     <i class="material-icons brown-text text-darken-3">close</i>
                   </div>
              </form></li >
-            <li ><i class="large account_circle "></i></li >
+            <li ><i class="material-icons brown-text text-darken-3">account_circle</i></li >
 
           </ul>
 
