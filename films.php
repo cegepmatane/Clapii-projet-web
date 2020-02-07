@@ -20,8 +20,6 @@ $films = $requeteFilms->fetchAll();
                 </a>
 
             </li>
-        <?php }?>
-
     </ul>
 </div>
 

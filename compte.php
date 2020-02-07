@@ -14,7 +14,7 @@ include "./Ressources/header.php";
                 <p><b>Langue : </b>$langue :</p>
             </div>
               <div class="col s3">
-                  <a href="compteModification.php" class="waves-effect waves-light btn-large">Modifier</a>
+                  <a href="modifierCompte.php" class="waves-effect waves-light btn-large">Modifier</a>
               </div>
           </div>
         </div>
