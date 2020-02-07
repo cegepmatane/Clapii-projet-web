@@ -1,6 +1,6 @@
 <?php
 
-    require('./SQL/filmSQL.php');
+    require('../SQL/filmSQL.php');
     include "../Ressources/header.php";
     include "../Ressources/Connexion.php";
 
