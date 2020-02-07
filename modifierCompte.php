@@ -44,11 +44,13 @@ include "./Ressources/header.php";
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="input-field col s7">
-                            <input value="$langue" id="first_name" type="text" class="validate">
-                            <label class="active" for="first_name">Langue</label>
-                        </div>
+                    <div class="row col s7">
+                        <label>Langue</label>
+                        <select class="browser-default" >
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Français</option>
+                            <option value="2">Anglais</option>
+                        </select>
                     </div>
                 </form>
             <div class="col s2">
