@@ -12,14 +12,14 @@
 <h1>Vous êtes en mode admin!!!</h1>
 <div>
     <ul>
-        <?php foreach ($films as $film){?> 
+        <?php foreach ($films as $film):?>
             <li class="tooltip-film">
                 <a href="./modifier-film.php?film=<?= $film['nom'] ?>" >
                     <img class="thumbnail" src="Ressources/images/PlaceHolder.jpg"> 
                     <span class="tooltiptext"> <?= $film['nom'] ?></span>
                 </a>
             </li>
-        <?php } ?>
+        <?php endforeach; ?>
     </ul>
 </div>
 

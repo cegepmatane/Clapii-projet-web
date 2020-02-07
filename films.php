@@ -12,7 +12,7 @@ $films = $requeteFilms->fetchAll();
 
 <div>
     <ul>
-        <?php foreach ($films as $film) {?>
+        <?php foreach ($films as $film) :?>
             <li class="tooltip-film">
                 <a href="./film.php?film= <?=$film['nom'] ?> ">
                     <img class="thumbnail" src="Ressources/images/PlaceHolder.jpg">
@@ -20,6 +20,7 @@ $films = $requeteFilms->fetchAll();
                 </a>
 
             </li>
+        <?php endforeach;?>
     </ul>
 </div>
 
