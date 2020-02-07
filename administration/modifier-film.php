@@ -16,7 +16,7 @@ $film = $requeteFilm->fetch();
 
         <div>
             <label for="nom">Nom</label>
-            <input type="text" name="nom" id="nom" value="<?php echo $film['nom'] ?>"/>
+            <input type="text" name="nom" id="nom" value="<?=$film['nom'] ?>"/>
         </div>
 
         <label>/!\DATE NON MODIFIABLE POUR L'INSTANT/!\</label>
@@ -24,7 +24,7 @@ $film = $requeteFilm->fetch();
 
         <div>
             <label for="synopsis">Synopsis</label>
-            <input type="text" name="synopsis" id="synopsis" value="<?php echo $film['synopsis'] ?>"/>
+            <input type="text" name="synopsis" id="synopsis" value="<?= $film['synopsis'] ?>"/>
         </div>
 
 
