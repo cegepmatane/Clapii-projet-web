@@ -12,7 +12,7 @@ $requeteFilm->execute();
 $film = $requeteFilm->fetch();
 ?>
 
-<h1> <?=$film['nom']?> </h1>
+<h1> <?=$film['titre']?> </h1>
 <h2> <?=$film['synopsis']?></h2>
 <a href="films.php" class="brown lighten-2 btn"><i class="material-icons left">arrow_back</i>Retour</a>
 
