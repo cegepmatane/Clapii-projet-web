@@ -1,6 +1,6 @@
 <?php
-if(!isset($film['nom'])){
-    $film['nom']="";
+if(!isset($film['titre'])){
+    $film['titre']="";
 }
 if(!isset($film['synopsis'])){
     $film['synopsis']="";
@@ -12,7 +12,7 @@ if(!isset($film['synopsis'])){
     <?php else:?>
         <i class="material-icons circle">highlight_off</i>
     <?php endif;?>
-    <span class="title"><?= $film['nom'] ?></span>
+    <span class="title"><?= $film['titre'] ?></span>
     <a href="./film.php?id=<?= $film['id'] ?>" class="secondary-content">
         <i class="material-icons">arrow_forward</i>
     </a>
