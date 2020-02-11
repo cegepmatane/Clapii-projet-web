@@ -14,7 +14,7 @@ $films = $requeteFilms->fetchAll();
     <ul>
         <?php foreach ($films as $film) :?>
             <li class="tooltip-film">
-                <a href="./film.php?id= <?=$film['id'] ?> ">
+                <a href="./film.php?id=<?=$film['id'] ?>">
                     <img class="thumbnail" src="Ressources/images/PlaceHolder.jpg">
                     <span class="tooltiptext"><?= $film['nom'] ?> </span>
                 </a>
