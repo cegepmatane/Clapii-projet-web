@@ -30,7 +30,7 @@
                     <i class="material-icons brown-text text-darken-3">close</i>
                   </div>
              </form></li >
-              <li ><a href="films.php"><i class="material-icons brown-text text-darken-3">account_circle</i></a></li >
+              <li ><a href="compte.php"><i class="material-icons brown-text text-darken-3">account_circle</i></a></li >
 
           </ul>
 

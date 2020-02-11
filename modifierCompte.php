@@ -47,14 +47,14 @@ include "./Ressources/header.php";
                     <div class="row col s7">
                         <label>Langue</label>
                         <select class="browser-default" >
-                            <option value="" disabled selected>Choose your option</option>
+                            <option value="" disabled selected>Choisir une langue</option>
                             <option value="1">Français</option>
                             <option value="2">Anglais</option>
                         </select>
                     </div>
                 </form>
             <div class="col s2">
-                <a class="waves-effect waves-light btn-large">ok</a>
+                <a href="compte.php" class="waves-effect waves-light btn-large">ok</a>
             </div>
         </div>
     </div>
