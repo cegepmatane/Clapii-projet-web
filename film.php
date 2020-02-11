@@ -4,13 +4,12 @@ require('./SQL/filmSQL.php');
 include "./Ressources/header.php";
 include "./Ressources/Connexion.php";
 
-$nomFilm = $_GET['film'];
+$idFilm = $_GET['id'];
 
-$requeteFilm = $basededonnees->prepare(SELECT_FILM_BY_NOM);
-$requeteFilm->bindParam(":nom", $nomFilm, PDO::PARAM_STR);
+$requeteFilm = $basededonnees->prepare(SELECT_FILM_BY_ID);
+$requeteFilm->bindParam(":id", $idFilm, PDO::PARAM_STR);
 $requeteFilm->execute();
 $film = $requeteFilm->fetch();
-//print_r($film);
 ?>
 
 <h1> <?=$film['nom']?> </h1>

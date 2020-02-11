@@ -14,7 +14,7 @@
     <ul>
         <?php foreach ($films as $film):?>
             <li class="tooltip-film">
-                <a href="./modifier-film.php?film=<?= $film['nom'] ?>" >
+                <a href="./modifier-film.php?id=<?= $film['id'] ?>" >
                     <img class="thumbnail" src="Ressources/images/PlaceHolder.jpg"> 
                     <span class="tooltiptext"> <?= $film['nom'] ?></span>
                 </a>
