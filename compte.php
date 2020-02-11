@@ -11,7 +11,7 @@ include "./Ressources/header.php";
             <div class="col s6">
                 <p><b>Pseudo :</b>$pseudo</p>
                 <p><b>Mail : </b>$mail</p>
-                <p><b>Langue : </b>$langue :</p>
+                <p><b>Langue : </b>$langue</p>
             </div>
               <div class="col s3">
                   <a href="modifierCompte.php" class="waves-effect waves-light btn-large">Modifier</a>
