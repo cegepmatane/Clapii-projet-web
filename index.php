@@ -5,7 +5,9 @@ include "./Ressources/Connexion.php";
 
 require('./SQL/filmSQL.php');
 
-$requeteFilms = $basededonnees->prepare(SELECT_ALL_FILM);
+$limit = 4 ;
+$requeteFilms = $basededonnees->prepare(SELECT_FILM_RECENT);
+$requeteFilms->bindParam(":limit",$limit, PDO::PARAM_INT);
 $requeteFilms->execute();
 $films = $requeteFilms->fetchAll();
 ?>
