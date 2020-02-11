@@ -1,19 +1,16 @@
 <?php
 
-require('./SQL/filmSQL.php');
+//require('./SQL/filmSQL.php');
 include "./Ressources/header.php";
-include "./Ressources/Connexion.php";
+include "./Ressources/FilmDAO.php";
 
 $idFilm = $_GET['id'];
+$film = FilmDAO::detaillerFilm($idFilm);
 
-$requeteFilm = $basededonnees->prepare(SELECT_FILM_BY_ID);
-$requeteFilm->bindParam(":id", $idFilm, PDO::PARAM_STR);
-$requeteFilm->execute();
-$film = $requeteFilm->fetch();
 ?>
 
-<h1> <?=$film['titre']?> </h1>
-<h2> <?=$film['synopsis']?></h2>
+<h1> <?=$film->getTitre();?> </h1>
+<h2> <?=$film->getSynopsis();?></h2>
 <a href="films.php" class="brown lighten-2 btn"><i class="material-icons left">arrow_back</i>Retour</a>
 
 <?php

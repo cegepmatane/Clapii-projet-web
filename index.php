@@ -1,15 +1,12 @@
 <?php
 include "./Ressources/header.php";
 
-include "./Ressources/Connexion.php";
+include "./Ressources/FilmDAO.php";
 
-require('./SQL/filmSQL.php');
 
 $limit = 4 ;
-$requeteFilms = $basededonnees->prepare(SELECT_FILM_RECENT);
-$requeteFilms->bindParam(":limit",$limit, PDO::PARAM_INT);
-$requeteFilms->execute();
-$films = $requeteFilms->fetchAll();
+
+$films = FilmDAO::listerFilms();
 ?>
 <div class="container">
     <div class="row">

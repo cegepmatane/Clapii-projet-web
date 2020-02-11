@@ -1,9 +1,9 @@
 <?php
-if(!isset($film['titre'])){
-    $film['titre']="";
+if($film->getTitre() == null){
+    $film->setTitre("");
 }
-if(!isset($film['synopsis'])){
-    $film['synopsis']="";
+if($film->getSynopsis() == null){
+    $film->setSynopsis("");
 }
 ?>
 <li class="collection-item avatar">
@@ -12,8 +12,8 @@ if(!isset($film['synopsis'])){
     <?php else:?>
         <i class="material-icons circle">highlight_off</i>
     <?php endif;?>
-    <span class="title"><?= $film['titre'] ?></span>
-    <a href="./film.php?id=<?= $film['id'] ?>" class="secondary-content">
+    <span class="title"><?= $film->getTitre() ?></span>
+    <a href="./film.php?id=<?= $film->getId() ?>" class="secondary-content">
         <i class="material-icons">arrow_forward</i>
     </a>
 </li>
