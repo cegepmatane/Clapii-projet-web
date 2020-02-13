@@ -7,7 +7,7 @@ class Connection{
 	{
         $usager = 'phpmyadmin';
         $motdepasse = 'phpmyadmin-101010azer';
-        $hote = 'localhost';
+        $hote = 'localhost:3308';
         $base = 'Clapii';
         $dsn = 'mysql:dbname='.$base.';host=' . $hote. '';
         $basededonnees = new PDO($dsn, $usager, $motdepasse);
@@ -17,25 +17,25 @@ class Connection{
 }
 
 class FilmDAO extends Connection implements filmSQL
-	{				
+	{
 		public static function listerFilms()
 		{
-			
+
 			FilmDAO::initialiser();
 
 			$demandeFilms = FilmDAO::$basededonnees->prepare(filmDAO::SELECT_ALL_FILM);
 			$demandeFilms->execute();
             $filmsTableau = $demandeFilms->fetchAll(PDO::FETCH_ASSOC);
-            
+
             for($i = 0; $i < count($filmsTableau); $i++) {
                 $films[$i] = new film($filmsTableau[$i]['id'],
                 $filmsTableau[$i]['nom'],
-                $filmsTableau[$i]['synopsis'], 
+                $filmsTableau[$i]['synopsis'],
                 $filmsTableau[$i]['date_sortie']);
             }
 			return $films;
 		}
-		
+
 		public static function detaillerFilm($id)
 		{
 			FilmDAO::initialiser();
@@ -47,12 +47,12 @@ class FilmDAO extends Connection implements filmSQL
 			$film = $demandeFilm->fetch(PDO::FETCH_ASSOC);
 			return new film($film['id'],
             $film['nom'],
-            $film['synopsis'], 
+            $film['synopsis'],
             $film['date_sortie']);
 		}
-	
-		
+
+
 	}
-    
+
 
 ?>
