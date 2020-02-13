@@ -19,15 +19,14 @@ class Connection{
 class FilmDAO extends Connection implements filmSQL
 	{
 		public static function listerFilms()
-		{
-
+		{ 
 			FilmDAO::initialiser();
-
 			$demandeFilms = FilmDAO::$basededonnees->prepare(filmDAO::SELECT_ALL_FILM);
 			$demandeFilms->execute();
             $filmsTableau = $demandeFilms->fetchAll(PDO::FETCH_ASSOC);
 
             for($i = 0; $i < count($filmsTableau); $i++) {
+                //print_r($filmsTableau[$i]['nom']);
                 $films[$i] = new film($filmsTableau[$i]['id'],
                 $filmsTableau[$i]['nom'],
                 $filmsTableau[$i]['synopsis'],
@@ -39,7 +38,6 @@ class FilmDAO extends Connection implements filmSQL
 		public static function detaillerFilm($id)
 		{
 			FilmDAO::initialiser();
-
 			$demandeFilm = FilmDAO::$basededonnees->prepare(FilmDAO::SELECT_FILM_BY_ID);
 			$demandeFilm->bindParam(':id', $id, PDO::PARAM_INT);
 			$demandeFilm->execute();
