@@ -10,7 +10,7 @@ class film{
     protected $date;
     protected $casting;
     protected $commentaire;
-
+    /*
     public function __construct(){
         $id = null;
     }
@@ -29,8 +29,8 @@ class film{
         $this->titre = $titre;
         $this->synopsis = $synopsis;
     }
-
-    public function __construct4(int $id, string $titre, string $synopsis, string $date){
+    */
+    public function __construct(int $id, string $titre, string $synopsis, string $date){
         $this->id = $id;
         $this->titre = $titre;
         $this->synopsis = $synopsis;
