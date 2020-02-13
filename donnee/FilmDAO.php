@@ -1,6 +1,6 @@
 <?php
-include_once  "./SQL/filmSQL.php";
-include_once  "./modele/film.php";
+include_once "./SQL/filmSQL.php";
+include_once "./modele/film.php";
 class Connection{
     public static $basededonnees = null;
     public static function initialiser()
