@@ -1,26 +1,21 @@
 <?php
 
-    require('../SQL/filmSQL.php');
     include "../Ressources/header.php";
-    include "../Ressources/Connexion.php";
+    include "./donnee/FilmDAO.php";
     $filtresFilm = 
 	array(
 		'id' => FILTER_VALIDATE_INT,
-		'titre' => FILTER_SANITIZE_STRING,
+        'titre' => FILTER_SANITIZE_STRING,
+        'date' => FILTER_SANITIZE_STRING,
 		'synopsis' => FILTER_SANITIZE_STRING,
 		
     );
     
-    $film = filter_input_array(INPUT_POST, $filtresFilm);  
-    $SQL_MODIFIER_FILM = UPDATE_FILM_NOM_SYNOPSIS_BY_ID;
-    $requeteModifierFilm = $basededonnees->prepare($SQL_MODIFIER_FILM);
-    $requeteModifierFilm->bindParam(':id',$film['id'], PDO::PARAM_INT);
-    $requeteModifierFilm->bindParam(':titre',$film['titre'], PDO::PARAM_STR);
-	$requeteModifierFilm->bindParam(':synopsis',$film['synopsis'], PDO::PARAM_STR);
-    $reussiteModification = $requeteModifierFilm->execute();
-    if($reussiteModification):?>
+    $film = filter_input_array(INPUT_POST, $filtresFilm);
+    $objetFilm = new film($film['id'],$film['titre'],$film['synopsis'],$film['date']);
+    FilmDAO::modifierFilm($objetFilm);
+    ?>
         <header><h1>Le film a été modifié</h1></header>
-    <?php  endif; ?>
 
 
 

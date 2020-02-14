@@ -1,6 +1,6 @@
 <?php
     include "../Ressources/header.php";
-    include "../Ressources/Connexion.php"; 
+    include "./donnee/FilmDAO.php"; 
 ?>
 
 <form action="traitement-ajouter-film.php" method="post">
