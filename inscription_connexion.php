@@ -19,7 +19,8 @@ include "./Ressources/header.php"; ?>
                         </div>
 
 
-                        <a href="compte.php"   class="btn waves-effect waves-light" type="submit" name="action">Se connecter
+                        <a href="compte.php" class="btn waves-effect waves-light" type="submit" name="action">Se
+                            connecter
                             <i class="material-icons right">send</i>
                         </a>
 
@@ -67,7 +68,7 @@ include "./Ressources/header.php"; ?>
                     </div>
 
 
-                    <a href="compte.php" class="btn waves-effect waves-light" type="submit" name="action">S'inscrire
+                    <a href="inscription_suite.php" class="btn waves-effect waves-light" type="submit" name="action">S'inscrire
                         <i class="material-icons right">send</i>
                     </a>
                 </div>
