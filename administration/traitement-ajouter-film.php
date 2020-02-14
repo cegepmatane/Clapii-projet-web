@@ -15,7 +15,7 @@
     );
     
     $film = filter_input_array(INPUT_POST, $filtresFilm);
-    $objetFilm = new film(1,$film['nom'],$film['synopsis'],$film['date']);
+    $objetFilm = new film(1,$film['titre'],$film['synopsis'],$film['date']);
     FilmDAO::insererFilm($objetFilm);
     ?>
     <header><h1>Le film <?=$objetFilm->getTitre()?> a été ajouté</h1></header>
