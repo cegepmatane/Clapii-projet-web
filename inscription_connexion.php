@@ -10,7 +10,7 @@ include "./Ressources/header.php"; ?>
                     <div class="row">
                         <div class="col s6">
                             <label for="pseudo">Pseudo</label>
-                            <input placeholder="Placeholder" id="pseudo" type="text" class="validate">
+                            <input placeholder="Clapii" id="pseudo" type="text" class="validate">
                         </div>
 
                         <div class="col s6">
@@ -19,9 +19,9 @@ include "./Ressources/header.php"; ?>
                         </div>
 
 
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Se connecter
+                        <a href="compte.php"   class="btn waves-effect waves-light" type="submit" name="action">Se connecter
                             <i class="material-icons right">send</i>
-                        </button>
+                        </a>
 
                     </div>
                 </div>
@@ -34,24 +34,24 @@ include "./Ressources/header.php"; ?>
                     <div class="row">
                         <div class="col s6">
                             <label for="pseudo">Pseudo</label>
-                            <input placeholder="Placeholder" id="pseudo" type="text" class="validate">
+                            <input placeholder="Clapii" id="pseudo" type="text" class="validate">
                         </div>
 
                         <div class="col s6">
                             <label for="email">Email</label>
-                            <input id="email" type="email" class="validate">
+                            <input placeholder="Patrick.Dupont@clapii.com" id="email" type="email" class="validate">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s6">
                             <label for="first_name">Prénom</label>
-                            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                            <input placeholder="Patrick" id="first_name" type="text" class="validate">
                         </div>
 
 
                         <div class="col s6">
                             <label for="last_name">Nom</label>
-                            <input id="last_name" type="text" class="validate">
+                            <input placeholder="Dupont" id="last_name" type="text" class="validate">
                         </div>
                     </div>
 
@@ -67,13 +67,13 @@ include "./Ressources/header.php"; ?>
                     </div>
 
 
-                    <button class="btn waves-effect waves-light" type="submit" name="action">S'inscrire
+                    <a href="compte.php" class="btn waves-effect waves-light" type="submit" name="action">S'inscrire
                         <i class="material-icons right">send</i>
-                    </button>
+                    </a>
                 </div>
             </form>
         </div>
-      
+
     </div>
 
 <?php
