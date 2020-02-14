@@ -6,8 +6,8 @@
 <form action="traitement-ajouter-film.php" method="post">
 		
 			<div>
-				<label for="nom">Nom</label>
-				<input type="text" name="nom" id="nom" value="Nom"/>			
+				<label for="titre">Titre</label>
+				<input type="text" name="titre" id="titre" value="Titre"/>
 			</div>
 
 			<div>

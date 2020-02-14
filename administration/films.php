@@ -16,7 +16,7 @@
             <li class="tooltip-film">
                 <a href="./modifier-film.php?id=<?= $film['id'] ?>" >
                     <img class="thumbnail" src="Ressources/images/PlaceHolder.jpg"> 
-                    <span class="tooltiptext"> <?= $film['nom'] ?></span>
+                    <span class="tooltiptext"> <?= $film['titre'] ?></span>
                 </a>
             </li>
         <?php endforeach; ?>

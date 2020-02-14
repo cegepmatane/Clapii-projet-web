@@ -6,7 +6,7 @@
     $filtresFilm = 
 	array(
 		'id' => FILTER_VALIDATE_INT,
-		'nom' => FILTER_SANITIZE_STRING,
+		'titre' => FILTER_SANITIZE_STRING,
 		'synopsis' => FILTER_SANITIZE_STRING,
 		
     );
@@ -15,7 +15,7 @@
     $SQL_MODIFIER_FILM = UPDATE_FILM_NOM_SYNOPSIS_BY_ID;
     $requeteModifierFilm = $basededonnees->prepare($SQL_MODIFIER_FILM);
     $requeteModifierFilm->bindParam(':id',$film['id'], PDO::PARAM_INT);
-    $requeteModifierFilm->bindParam(':nom',$film['nom'], PDO::PARAM_STR);
+    $requeteModifierFilm->bindParam(':titre',$film['titre'], PDO::PARAM_STR);
 	$requeteModifierFilm->bindParam(':synopsis',$film['synopsis'], PDO::PARAM_STR);
     $reussiteModification = $requeteModifierFilm->execute();
     if($reussiteModification):?>

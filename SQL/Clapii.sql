@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `casting` (
   `id` int(11) NOT NULL,
-  `Nom` int(11) NOT NULL,
+  `Titre` int(11) NOT NULL,
   `Prenom` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -89,7 +89,7 @@ INSERT INTO `film` (`id`, `titre`, `date_sortie`, `synopsis`) VALUES
 (2, 'Sonic the Test', '2020-02-14', 'SANIC'),
 (3, 'Fast and Furious 69', '2069-04-20', 'Maintenant avec 100% moins de rapide, et 600% plus de dangereux, bienvenue dans l&#39;espace. YADESVOITUREMAGIQUE'),
 (4, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', '2020-01-22', 'BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB'),
-(5, 'Nom modifié', '2020-01-01', 'Synopsis changé'),
+(5, 'Titre modifié', '2020-01-01', 'Synopsis changé'),
 (6, 'Matrix', '2333-02-02', 'Synopsis du film test'),
 (11, 'Filtre film', '2000-01-01', 'Test des PHP filters'),
 (12, 'Forest gump', '2020-01-01', 'Maman disait toujours la vie c&#39;est comme une boite de chocolat on ne sait jamais sur quoi on va tomber.');

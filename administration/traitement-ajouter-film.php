@@ -8,7 +8,7 @@
     $filtresFilm = 
 	array(
 		'id' => FILTER_VALIDATE_INT,
-		'nom' => FILTER_SANITIZE_STRING,
+		'titre' => FILTER_SANITIZE_STRING,
 		'date' => FILTER_SANITIZE_STRING,
 		'synopsis' => FILTER_SANITIZE_STRING,
 		
@@ -17,13 +17,13 @@
     $film = filter_input_array(INPUT_POST, $filtresFilm);
     $SQL_AJOUTER_FILM = INSERT_FILM_BY_NOM_DATE_SYNOPSIS;
     $requeteAjouterFilm = $basededonnees->prepare($SQL_AJOUTER_FILM);
-	$requeteAjouterFilm->bindParam(':nom',$film['nom'], PDO::PARAM_STR);
+	$requeteAjouterFilm->bindParam(':titre',$film['titre'], PDO::PARAM_STR);
 	$requeteAjouterFilm->bindParam(':date',$film['date'], PDO::PARAM_STR);
 	$requeteAjouterFilm->bindParam(':synopsis',$film['synopsis'], PDO::PARAM_STR);
     $reussiteAjout = $requeteAjouterFilm->execute();
-    $nom = $film['nom'];
+    $titre = $film['titre'];
     if($reussiteAjout):?>
-        <header><h1>Le film <?=$nom?> a été ajouté</h1></header>
+        <header><h1>Le film <?=$titre?> a été ajouté</h1></header>
    <?php endif;?>
 
 
