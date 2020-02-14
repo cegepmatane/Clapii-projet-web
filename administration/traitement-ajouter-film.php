@@ -1,8 +1,8 @@
 <?php
 
-    require('../SQL/filmSQL.php');
+    
     include "../Ressources/header.php";
-    include "../Ressources/Connexion.php";
+    include "./donnee/FilmDAO.php";
 
 
     $filtresFilm = 
@@ -15,16 +15,11 @@
     );
     
     $film = filter_input_array(INPUT_POST, $filtresFilm);
-    $SQL_AJOUTER_FILM = INSERT_FILM_BY_NOM_DATE_SYNOPSIS;
-    $requeteAjouterFilm = $basededonnees->prepare($SQL_AJOUTER_FILM);
-	$requeteAjouterFilm->bindParam(':titre',$film['titre'], PDO::PARAM_STR);
-	$requeteAjouterFilm->bindParam(':date',$film['date'], PDO::PARAM_STR);
-	$requeteAjouterFilm->bindParam(':synopsis',$film['synopsis'], PDO::PARAM_STR);
-    $reussiteAjout = $requeteAjouterFilm->execute();
-    $titre = $film['titre'];
-    if($reussiteAjout):?>
-        <header><h1>Le film <?=$titre?> a été ajouté</h1></header>
-   <?php endif;?>
+    $objetFilm = new film(1,$film['nom'],$film['synopsis'],$film['date']);
+    FilmDAO::insererFilm($objetFilm);
+    ?>
+    <header><h1>Le film <?=$objetFilm->getTitre()?> a été ajouté</h1></header>
+
 
 
 

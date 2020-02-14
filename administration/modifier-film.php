@@ -1,22 +1,19 @@
 <?php
 
-require('../SQL/filmSQL.php');
+//require('./SQL/filmSQL.php');
 include "../Ressources/header.php";
-include "../Ressources/Connexion.php";
+include "./donnee/FilmDAO.php";
 
-$titreFilm = $_GET['film'];
+$idFilm = $_GET['id'];
+$film = FilmDAO::detaillerFilm($idFilm);
 
-$requeteFilm = $basededonnees->prepare(SELECT_FILM_BY_NOM);
-$requeteFilm->bindParam(":titre", $titreFilm, PDO::PARAM_STR);
-$requeteFilm->execute();
-$film = $requeteFilm->fetch();
 ?>
 
     <form action="traitement-modifier-film.php" method="post">
 
         <div>
-            <label for="titre">Titre</label>
-            <input type="text" name="titre" id="titre" value="<?=$film['titre'] ?>"/>
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom" value="<?=$film->getTitre() ?>"/>
         </div>
 
         <label>/!\DATE NON MODIFIABLE POUR L'INSTANT/!\</label>
@@ -24,12 +21,12 @@ $film = $requeteFilm->fetch();
 
         <div>
             <label for="synopsis">Synopsis</label>
-            <input type="text" name="synopsis" id="synopsis" value="<?= $film['synopsis'] ?>"/>
+            <input type="text" name="synopsis" id="synopsis" value="<?= $film->getSynopsis() ?>"/>
         </div>
 
 
         <input type="submit" value="Enregistrer">
-        <input type="hidden" name="id" value="<?= $film['id'] ?>"/>
+        <input type="hidden" name="id" value="<?= $film->getId() ?>"/>
     </form>
 
 <?php
