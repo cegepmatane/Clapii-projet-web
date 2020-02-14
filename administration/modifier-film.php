@@ -12,12 +12,14 @@ $film = FilmDAO::detaillerFilm($idFilm);
     <form action="traitement-modifier-film.php" method="post">
 
         <div>
-            <label for="nom">Nom</label>
-            <input type="text" name="nom" id="nom" value="<?=$film->getTitre() ?>"/>
+            <label for="titre">Titre</label>
+            <input type="text" name="titre" id="titre" value="<?=$film->getTitre() ?>"/>
         </div>
 
-        <label>/!\DATE NON MODIFIABLE POUR L'INSTANT/!\</label>
-
+        <div>
+            <label for="date">Date</label>
+            <input type="text" name="date" id="date" value="<?=$film->getDate() ?>"/>
+        </div>
 
         <div>
             <label for="synopsis">Synopsis</label>
