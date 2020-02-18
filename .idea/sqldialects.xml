@@ -4,6 +4,5 @@
     <file url="file://$PROJECT_DIR$/SQL/0-Clapii.sql" dialect="MariaDB" />
     <file url="file://$PROJECT_DIR$/SQL/1-ajout_table_utilisateur.sql" dialect="MariaDB" />
     <file url="file://$PROJECT_DIR$/SQL/2-ajout_table_commentaire.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/administration/SQL/Clapii.sql" dialect="MariaDB" />
   </component>
 </project>
