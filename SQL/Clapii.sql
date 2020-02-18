@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
@@ -77,7 +77,10 @@ CREATE TABLE `film` (
   `id` int(11) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `date_sortie` date NOT NULL,
-  `synopsis` text NOT NULL
+  `synopsis` text NOT NULL,
+  `origine` text NOT NULL,
+  `genre` text NOT NULL,
+  `duree` int NOT NULL 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -85,14 +88,14 @@ CREATE TABLE `film` (
 --
 
 INSERT INTO `film` (`id`, `titre`, `date_sortie`, `synopsis`) VALUES
-(1, 'Film test', '2020-01-27', 'Ce film est un test pour établir la connexion entre l\'affichage client (page web) et le serveur.'),
-(2, 'Sonic the Test', '2020-02-14', 'SANIC'),
-(3, 'Fast and Furious 69', '2069-04-20', 'Maintenant avec 100% moins de rapide, et 600% plus de dangereux, bienvenue dans l&#39;espace. YADESVOITUREMAGIQUE'),
-(4, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', '2020-01-22', 'BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB'),
-(5, 'Titre modifié', '2020-01-01', 'Synopsis changé'),
-(6, 'Matrix', '2333-02-02', 'Synopsis du film test'),
-(11, 'Filtre film', '2000-01-01', 'Test des PHP filters'),
-(12, 'Forest gump', '2020-01-01', 'Maman disait toujours la vie c&#39;est comme une boite de chocolat on ne sait jamais sur quoi on va tomber.');
+(1, 'Film test', '2020-01-27', 'Ce film est un test pour établir la connexion entre l\'affichage client (page web) et le serveur.',NULL,NULL,NULL),
+(2, 'Sonic the Test', '2020-02-14', 'SANIC',NULL,NULL,NULL),
+(3, 'Fast and Furious 69', '2069-04-20', 'Maintenant avec 100% moins de rapide, et 600% plus de dangereux, bienvenue dans l&#39;espace. YADESVOITUREMAGIQUE',NULL,NULL,NULL),
+(4, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', '2020-01-22', 'BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB',NULL,NULL,NULL),
+(5, 'Titre modifié', '2020-01-01', 'Synopsis changé',NULL,NULL,NULL),
+(6, 'Matrix', '2333-02-02', 'Synopsis du film test',NULL,NULL,NULL),
+(11, 'Filtre film', '2000-01-01', 'Test des PHP filters',NULL,NULL,NULL),
+(12, 'Forest gump', '2020-01-01', 'Maman disait toujours la vie c&#39;est comme une boite de chocolat on ne sait jamais sur quoi on va tomber.',NULL,NULL,NULL);
 
 --
 -- Index pour les tables déchargées
