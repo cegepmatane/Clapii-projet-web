@@ -3,21 +3,20 @@ include "./Ressources/header.php"; ?>
     <div class=container>
 
         <div class="row">
-            <form class="col s6">
+            <form class="col s6" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
 
                 <div class="card-panel grey lighten-5 z-depth-1">
 
                     <div class="row">
                         <div class="col s6">
                             <label for="pseudo">Pseudo</label>
-                            <input placeholder="Clapii" id="pseudo" type="text" class="validate">
+                            <input name="fname" placeholder="Clapii" id="pseudo" type="text" class="validate">
                         </div>
-
                         <div class="col s6">
                             <label for="password">Mot de passe</label>
-                            <input id="password" type="password" class="validate">
+                            <input name="fmdp" id="password" type="password" class="validate">
                         </div>
-
+                        <input type="submit">
 
                         <a href="compte.php" class="btn waves-effect waves-light" type="submit" name="action">Se
                             connecter
@@ -80,3 +79,20 @@ include "./Ressources/header.php"; ?>
 <?php
 include "./Ressources/footer.php";
 ?>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // collect value of input field
+    $name = $_POST['fname'];
+    if (empty($name)) {
+        echo "Name is empty";
+    } else {
+        echo $name."<br>";
+    }
+    $mdp = $_POST['fmdp'];
+    if (empty($mdp)) {
+        echo "Name is empty";
+    } else {
+        echo $mdp;
+    }
+}?>

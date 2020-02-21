@@ -1,5 +1,5 @@
 <?php
-include_once "./SQL/filmSQL.php";
+include_once "./phpsql/filmSQL.php";
 include_once "./modele/film.php";
 include_once "./donnee/ParametresConnection.php";
 class Connection{
