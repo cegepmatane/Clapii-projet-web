@@ -1,26 +1,16 @@
 <?php
 include_once "./phpsql/filmSQL.php";
 include_once "./modele/film.php";
-include_once "./donnee/ParametresConnection.php";
-class Connection{
-    public static $basededonnees = null;
-    public static function initialiser()
-	{
-        $dsn = 'mysql:dbname='.Param::$base.';host=' . Param::$hote. '';
-        $basededonnees = new PDO($dsn, Param::$usager, Param::$motdepasse);
-        FilmDAO::$basededonnees = new PDO($dsn, Param::$usager, Param::$motdepasse);
-        FilmDAO::$basededonnees->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
-}
+include_once "./donnee/BaseDeDonnees.php";
 
-class FilmDAO extends Connection implements filmSQL
+class FilmDAO implements filmSQL
 	{
 		public static function listerFilms()
 		{
 
-			FilmDAO::initialiser();
+			$connexion = BaseDeDonnees::getInstance()->getConnexion();
 
-			$demandeFilms = FilmDAO::$basededonnees->prepare(filmDAO::SELECT_ALL_FILM);
+			$demandeFilms = $connexion->prepare(self::SELECT_ALL_FILM);
 			$demandeFilms->execute();
             $filmsTableau = $demandeFilms->fetchAll(PDO::FETCH_ASSOC);
 
@@ -35,9 +25,9 @@ class FilmDAO extends Connection implements filmSQL
 
 		public static function detaillerFilm($id)
 		{
-			FilmDAO::initialiser();
+			$connexion = BaseDeDonnees::getInstance()->getConnexion();
 
-			$demandeFilm = FilmDAO::$basededonnees->prepare(FilmDAO::SELECT_FILM_BY_ID);
+			$demandeFilm = $connexion->prepare(self::SELECT_FILM_BY_ID);
 			$demandeFilm->bindParam(':id', $id, PDO::PARAM_INT);
 			$demandeFilm->execute();
 			//$contrat = $demandeContrat->fetchAll(PDO::FETCH_OBJ)[0];
