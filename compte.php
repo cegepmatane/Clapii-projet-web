@@ -45,3 +45,52 @@ include "./Ressources/header.php";
           </div>
         </div>
       </div>
+
+
+<?php
+include "./Ressources/footer.php";
+?>
+
+
+<?php
+$pseudo2 = $_POST['fpseudo2'];
+if (empty($pseudo2)) {
+    echo "Name is empty";
+} else {
+    echo $pseudo2."<br>";
+}
+
+$mail= $_POST['fmail'];
+if (empty($mail)) {
+    echo "Name is empty";
+} else {
+    echo $mail."<br>";
+}
+
+$prenom = $_POST['fprenom'];
+if (empty($prenom)) {
+    echo "Name is empty";
+} else {
+    echo $prenom."<br>";
+}
+$nom = $_POST['fnom'];
+if (empty($nom)) {
+    echo "Name is empty";
+} else {
+    echo $nom."<br>";
+}
+
+$mdp2 = $_POST['fmdp2'];
+if (empty($mdp2)) {
+    echo "Name is empty";
+} else {
+    echo $mdp2."<br>";
+}
+
+$mdp3 = $_POST['fmdp3'];
+if (empty($mdp3)) {
+    echo "Name is empty";
+} else {
+    echo $mdp3."<br>";
+}?>
+
