@@ -4,7 +4,7 @@ include_once "./modele/film.php";
 include_once "./donnee/BaseDeDonnees.php";
 
 
-class FilmDAO  implements filmSQL
+class FilmDAO  implements FilmSQL
 	{				
 		public static function listerFilms()
 		{

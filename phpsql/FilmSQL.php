@@ -1,5 +1,5 @@
 <?php
-interface filmSQL
+interface FilmSQL
 {
     public const SELECT_ALL_FILM = "SELECT * FROM Film";
     public const SELECT_FILM_BY_ID = "SELECT * FROM Film WHERE id = :id";
