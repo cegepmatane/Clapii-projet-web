@@ -1,0 +1,1 @@
+ALTER TABLE `film` DROP `genre`;

@@ -12,8 +12,8 @@ if($film->getSynopsis() == null){
     <?php else:?>
         <i class="material-icons circle">highlight_off</i>
     <?php endif;?>
-    <span class="title"><?= $film->getTitre() ?></span>
-    <a href="./film.php?id=<?= $film->getId() ?>" class="secondary-content">
+    <span class="title truncate"><?= $film->getTitre() ?></span>
+    <a href="./film.php?id=<?= $film->getId() ?>" class="secondary-content truncate">
         <i class="material-icons">arrow_forward</i>
     </a>
 </li>
