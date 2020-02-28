@@ -6,7 +6,7 @@ include "./Ressources/header.php";
     <div class="card-panel grey lighten-5 z-depth-1">
         <div class="row valign-wrapper">
             <div class="col s3">
-                <img src="Ressources/images/PlaceHolder.jpg" alt="" class="circle responsive-img">
+                <img src="Ressources/Images/PlaceHolder.jpg" alt="" class="circle responsive-img">
 
                 <div class="row">
 

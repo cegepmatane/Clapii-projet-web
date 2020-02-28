@@ -1,6 +1,6 @@
 <?php
 
-//require('./phpsql/filmSQL.php');
+//require('./PhpSQL/FilmSQL.php');
 include "../Ressources/header.php";
 include "./donnee/FilmDAO.php";
 

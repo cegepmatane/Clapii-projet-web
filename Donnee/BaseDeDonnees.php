@@ -1,6 +1,6 @@
 <?php
 
-include_once "./donnee/ParametresConnection.php";
+include_once "./Donnee/ParametresConnection.php";
 
 
 class BaseDeDonnees
@@ -24,8 +24,8 @@ class BaseDeDonnees
 
     public function __construct()
     {
-        $dsn = 'mysql:dbname='.Param::$base.';host=' . Param::$hote. '';
-        $this->basededonnees = new PDO($dsn, Param::$usager, Param::$motdepasse);
+        $dsn = 'mysql:dbname='.ParametresConnection::$base.';host=' . ParametresConnection::$hote. '';
+        $this->basededonnees = new PDO($dsn, ParametresConnection::$usager, ParametresConnection::$motdepasse);
         $this->basededonnees->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     }

@@ -1,7 +1,7 @@
 <?php
 
 
-class commentaire
+class Commentaire
 {
     protected $id;
     protected $id_utilisateur;

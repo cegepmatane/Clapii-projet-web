@@ -1,7 +1,7 @@
 <?php
 
 
-class utilisateur
+class Utilisateur
 {
     protected $id;
     protected $pseudo;

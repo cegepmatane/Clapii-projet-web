@@ -1,9 +1,9 @@
 <?php
 
-require('./phpsql/filmSQL.php');
+require('./PhpSQL/filmSQL.php');
 include "./Ressources/header.php";
 
-include "./donnee/FilmDAO.php";
+include "./Donnee/FilmDAO.php";
 $films = FilmDAO::listerFilms();
 ?>
 
@@ -12,7 +12,7 @@ $films = FilmDAO::listerFilms();
         <?php foreach ($films as $film) :?>
             <li class="tooltip-film">
                 <a href="./film.php?id= <?=$film->getId(); ?> ">
-                    <img class="thumbnail" src="Ressources/images/PlaceHolder.jpg">
+                    <img class="thumbnail" src="Ressources/Images/PlaceHolder.jpg">
                     <span class="tooltiptext"><?= $film->getTitre(); ?> </span>
                 </a>
 

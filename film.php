@@ -1,8 +1,8 @@
 <?php
 
-require('./phpsql/filmSQL.php');
+require('./PhpSQL/filmSQL.php');
 include "./Ressources/header.php";
-include "./donnee/FilmDAO.php";
+include "./Donnee/FilmDAO.php";
 
 $idFilm = $_GET['id'];
 $film = FilmDAO::detaillerFilm($idFilm);
@@ -13,7 +13,7 @@ $film = FilmDAO::detaillerFilm($idFilm);
         <div class="card-panel grey lighten-5 z-depth-1">
             <div class="row valign-wrapper">
                 <div class="col s3">
-                    <img src="Ressources/images/PlaceHolder.jpg" alt="" class="responsive-img"> <!-- notice the "circle" class -->
+                    <img src="Ressources/Images/PlaceHolder.jpg" alt="" class="responsive-img"> <!-- notice the "circle" class -->
                 </div>
                 <div class="col s7">
                     <h1><?=$film->getTitre();?> </h1>
@@ -52,7 +52,7 @@ $film = FilmDAO::detaillerFilm($idFilm);
                     <li class="collection-item">
                         <div class="row valign-wrapper">
                             <div class="col s2">
-                                <img class="thumbnail" src="Ressources/images/PlaceHolder.jpg">
+                                <img class="thumbnail" src="Ressources/Images/PlaceHolder.jpg">
                             </div>
                             <div class="col s8">
                                 <b>Pseudo</b>
@@ -77,7 +77,7 @@ $film = FilmDAO::detaillerFilm($idFilm);
                     <li class="collection-item">
                         <div class="row valign-wrapper">
                             <div class="col s2">
-                                <img class="thumbnail" src="Ressources/images/PlaceHolder.jpg">
+                                <img class="thumbnail" src="Ressources/Images/PlaceHolder.jpg">
                             </div>
                             <div class="col s8">
                                 <b>Pseudo</b>
@@ -102,7 +102,7 @@ $film = FilmDAO::detaillerFilm($idFilm);
                     <li class="collection-item">
                         <div class="row valign-wrapper">
                             <div class="col s2">
-                                <img class="thumbnail" src="Ressources/images/PlaceHolder.jpg">
+                                <img class="thumbnail" src="Ressources/Images/PlaceHolder.jpg">
                             </div>
                             <div class="col s8">
                                 <b>Pseudo</b>

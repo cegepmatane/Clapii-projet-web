@@ -1,7 +1,7 @@
 <?php
-include_once "./SQL/filmSQL.php";
-include_once "./modele/film.php";
-include_once "./donnee/BaseDeDonnees.php";
+include_once "./SQL/FilmSQL.php";
+include_once "./Modele/Film.php";
+include_once "./Donnee/BaseDeDonnees.php";
 
 
 class FilmDAO  implements FilmSQL
@@ -15,7 +15,7 @@ class FilmDAO  implements FilmSQL
             
             for($i = 0; $i < count($filmsTableau); $i++) {
                 //print_r($filmsTableau[$i]['nom']);
-                $films[$i] = new film($filmsTableau[$i]['id'],
+                $films[$i] = new Film($filmsTableau[$i]['id'],
                 $filmsTableau[$i]['titre'],
                 $filmsTableau[$i]['synopsis'], 
                 $filmsTableau[$i]['date_sortie']);
@@ -31,7 +31,7 @@ class FilmDAO  implements FilmSQL
 			$demandeFilm->execute();
 			//$contrat = $demandeContrat->fetchAll(PDO::FETCH_OBJ)[0];
 			$film = $demandeFilm->fetch(PDO::FETCH_ASSOC);
-			return new film($film['id'],
+			return new Film($film['id'],
             $film['titre'],
             $film['synopsis'], 
             $film['date_sortie']);

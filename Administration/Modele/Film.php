@@ -1,7 +1,7 @@
 <?php
 
 
-class film{
+class Film{
 
     
     protected $id;

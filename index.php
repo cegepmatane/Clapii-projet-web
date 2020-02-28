@@ -1,7 +1,7 @@
 <?php
 include "./Ressources/header.php";
 
-include "./donnee/FilmDAO.php";
+include "./Donnee/FilmDAO.php";
 
 
 $limit = 4 ;
@@ -18,7 +18,7 @@ $films = FilmDAO::listerFilms();
                     <span class="card-title">Les derniers films</span>
                     <ul class="collection">
                         <?php foreach ($films as $film) {
-                            include("./Vues/Fragment/filmAccueil.php");
+                            include("./Vues/Fragment/film-accueil.php");
                         } ?>
                     </ul>
                 </div>

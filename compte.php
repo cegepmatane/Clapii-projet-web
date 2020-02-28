@@ -6,17 +6,17 @@ include "./Ressources/header.php";
         <div class="card-panel grey lighten-5 z-depth-1">
           <div class="row valign-wrapper">
             <div class="col s3">
-              <img src="Ressources/images/PlaceHolder.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+              <img src="Ressources/Images/PlaceHolder.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
             </div>
             <div class="col s5">
                 <p><b>Pseudo :</b>$pseudo</p>
                 <p><b>Mail : </b>$mail</p>
                 <p><b>Langue : </b>$langue</p>
             </div>
-              <img src="./Ressources/images/PaypalLogo.png" class="paypal col s1">
+              <img src="Ressources/Images/PaypalLogo.png" class="paypal col s1">
 
             <div class="col s3">
-                <a href="modifierCompte.php" class="waves-effect waves-light btn-large">Modifier</a>
+                <a href="modifier-compte.php" class="waves-effect waves-light btn-large">Modifier</a>
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_new">
 
                   <input type="hidden" name="amount" value="0.01">
