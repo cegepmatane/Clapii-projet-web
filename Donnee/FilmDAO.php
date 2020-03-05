@@ -42,7 +42,7 @@ class FilmDAO implements FilmSQL
 		{
 			$connexion = BaseDeDonnees::getInstance()->getConnexion();
 
-			$demandeFilm = $connexion->prepare(self::SELECT_FILM_RECENT);
+			$demandeFilms = $connexion->prepare(self::SELECT_FILM_RECENT);
 			$demandeFilms->execute();
             $filmsTableau = $demandeFilms->fetchAll(PDO::FETCH_ASSOC);
 
