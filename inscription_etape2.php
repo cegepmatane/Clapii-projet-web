@@ -55,7 +55,7 @@ include "./Ressources/header.php";
 
 
                     </div>
-                    <a href="inscription_etape2.php" class="btn waves-effect waves-light" type="submit" name="action">S'inscrire
+                    <a href="inscription_etape3.php" class="btn waves-effect waves-light" type="submit" name="action">Valider
                         <i class="material-icons right">send</i>
                     </a>
                 </form>

@@ -27,7 +27,7 @@ include "./Ressources/header.php"; ?>
 
 
 
-            <form class="col s6" method="post" action="compte.php">
+            <form class="col s6" method="post" action="inscription_etape2.php">
 
                 <div class="card-panel grey lighten-5 z-depth-1">
                     <div class="row">
@@ -65,7 +65,7 @@ include "./Ressources/header.php"; ?>
                         </div>
                     </div>
 
-                    <button href="compte.php" class="btn waves-effect waves-light" type="submit" name="action">S'inscrire
+                    <button class="btn waves-effect waves-light" type="submit" name="action">S'inscrire
                         <i class="material-icons right">send</i>
                     </button>
                 </div>
