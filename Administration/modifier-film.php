@@ -2,7 +2,7 @@
 
 //require('./PhpSQL/FilmSQL.php');
 include "../Ressources/header.php";
-include "./donnee/FilmDAO.php";
+include "./Donnee/FilmDAO.php";
 
 $idFilm = $_GET['id'];
 $film = FilmDAO::detaillerFilm($idFilm);

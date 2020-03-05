@@ -3,7 +3,7 @@
 require('./SQL/FilmSQL.php');
 include "../Ressources/header.php";
 
-include "./donnee/FilmDAO.php";
+include "./Donnee/FilmDAO.php";
 $films = FilmDAO::listerFilms();
 ?>
 <h1>Vous êtes en mode admin!!!</h1>
