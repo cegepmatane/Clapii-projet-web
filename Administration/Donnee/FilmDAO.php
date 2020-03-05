@@ -1,5 +1,5 @@
 <?php
-include_once "./SQL/FilmSQL.php";
+include_once "./PhpSQL/FilmSQL.php";
 include_once "./Modele/Film.php";
 include_once "./Donnee/BaseDeDonnees.php";
 
@@ -18,7 +18,9 @@ class FilmDAO  implements FilmSQL
                 $films[$i] = new Film($filmsTableau[$i]['id'],
                 $filmsTableau[$i]['titre'],
                 $filmsTableau[$i]['synopsis'], 
-                $filmsTableau[$i]['date_sortie']);
+                $filmsTableau[$i]['date_sortie'],
+                $filmsTableau[$i]['origine'],
+                $filmsTableau[$i]['duree']);
             }
 			return $films;
 		}
@@ -34,7 +36,9 @@ class FilmDAO  implements FilmSQL
 			return new Film($film['id'],
             $film['titre'],
             $film['synopsis'], 
-            $film['date_sortie']);
+            $film['date_sortie'],
+            $film['origine'],
+            $film['duree']);
         }
         
         public static function insererFilm($film)
