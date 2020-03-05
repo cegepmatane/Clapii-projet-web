@@ -17,11 +17,10 @@ include "./Ressources/header.php"; ?>
                             <input name="fmdp" id="password" type="password" class="validate">
                         </div>
 
-                        <button href="compte.php" class="btn waves-effect waves-light" type="submit" name="action">Se connecter
-                            <i class="material-icons right">send</i>
-                        </button>
-
                     </div>
+                    <button href="compte.php" class="btn waves-effect waves-light" type="submit" name="action">Se connecter
+                        <i class="material-icons right">send</i>
+                    </button>
                 </div>
             </form>
 
