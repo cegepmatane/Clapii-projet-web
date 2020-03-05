@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include "./Donnee/UtilisateurDAO.php";
 if (isset($_POST['pseudo'], $_POST['password']))
 {
