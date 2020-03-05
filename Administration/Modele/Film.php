@@ -10,6 +10,8 @@ class Film{
     protected $date;
     protected $casting;
     protected $commentaire;
+    protected $origine;
+    protected $duree;
     /*
     public function __construct(){
         $id = null;
@@ -30,11 +32,13 @@ class Film{
         $this->synopsis = $synopsis;
     }
     */
-    public function __construct(int $id, string $titre, string $synopsis, string $date){
+    public function __construct(int $id, string $titre, string $synopsis, string $date, string $origine, string $duree){
         $this->id = $id;
         $this->titre = $titre;
         $this->synopsis = $synopsis;
         $this->date = $date;
+        $this->origine = $origine;
+        $this->duree = $duree;
     }
 
     function setId(int $id){
@@ -67,6 +71,22 @@ class Film{
 
     function getSynopsis(){
         return $this->synopsis;
+    }
+
+    function setOrigine(string $origine){
+        $this->origine = $origine;
+    }
+
+    function getOrigine(){
+        return $this->origine;
+    }
+
+    function setDuree(string $duree){
+        $this->duree = $duree;
+    }
+
+    function getDuree(){
+        return $this->duree;
     }
 
 }
