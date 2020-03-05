@@ -8,4 +8,5 @@ interface filmSQL
     (:titre, :date, :synopsis, :origine, :duree)";
     public const UPDATE_FILM_BY_ID = "UPDATE film SET titre = :titre, date_sortie = :date ,synopsis= :synopsis WHERE id = :id";
     public const SELECT_FILM_RECENT = "SELECT * FROM film ORDER BY date_sortie DESC LIMIT :limit";
+    public const DELETE_FILM_BY_ID = "DELETE FROM film WHERE id = :id";
 }

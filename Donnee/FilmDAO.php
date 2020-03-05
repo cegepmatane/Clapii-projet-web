@@ -1,7 +1,7 @@
 <?php
-include_once "./PhpSQL/FilmSQL.php";
-include_once "./Modele/Film.php";
-include_once "./Donnee/BaseDeDonnees.php";
+include_once __DIR__."/../PhpSQL/FilmSQL.php";
+include_once __DIR__."/../Modele/Film.php";
+include_once __DIR__."/../Donnee/BaseDeDonnees.php";
 
 class FilmDAO implements FilmSQL
 	{
@@ -36,6 +36,23 @@ class FilmDAO implements FilmSQL
             $film['titre'],
             $film['synopsis'],
             $film['date_sortie']);
+		}
+
+		public static function retourFilmRecent()
+		{
+			$connexion = BaseDeDonnees::getInstance()->getConnexion();
+
+			$demandeFilm = $connexion->prepare(self::SELECT_FILM_RECENT);
+			$demandeFilms->execute();
+            $filmsTableau = $demandeFilms->fetchAll(PDO::FETCH_ASSOC);
+
+            for($i = 0; $i < count($filmsTableau); $i++) {
+                $films[$i] = new Film($filmsTableau[$i]['id'],
+                $filmsTableau[$i]['titre'],
+                $filmsTableau[$i]['synopsis'],
+                $filmsTableau[$i]['date_sortie']);
+            }
+			return $films;
 		}
 
 

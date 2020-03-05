@@ -1,6 +1,6 @@
 <?php
 
-include_once "./Donnee/ParametresConnection.php";
+include_once __DIR__."/ParametresConnection.php";
 
 
 class BaseDeDonnees
