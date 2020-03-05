@@ -26,7 +26,6 @@ class UtilisateurDAO implements UtilisateurSQL
     }
 
     public static function insererUtilisateur($utilisateur){
-
         $connexion = BaseDeDonnees::getInstance()->getConnexion();
         $demandeUtilisateur = $connexion->prepare(self::INSERT_UTILISATEUR_BY_PSEUDO_NOM_PRENOM_MAIL_PASSWORD);
 
@@ -41,7 +40,7 @@ class UtilisateurDAO implements UtilisateurSQL
         $demandeUtilisateur->bindParam(':prenom', $prenom, PDO::PARAM_STR);
         $demandeUtilisateur->bindParam(':mail', $mail, PDO::PARAM_STR);
         $demandeUtilisateur->bindParam(':password', $password, PDO::PARAM_STR);
-        
+
         $demandeUtilisateur->execute();
     }
 

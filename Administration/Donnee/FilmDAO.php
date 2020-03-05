@@ -68,6 +68,14 @@ class FilmDAO  implements FilmSQL
             $demandeFilm->bindParam(':synopsis', $synopsis, PDO::PARAM_STR);
 			$demandeFilm->execute();
         }
+
+        public static function supprimerFilm($idFilm)
+        {
+            $connexion = BaseDeDonnees::getInstance()->getConnexion();
+            $demandeFilm = $connexion->prepare(self::DELETE_FILM_BY_ID);
+            $demandeFilm->bindParam(':id', $idFilm, PDO::PARAM_INT);
+			$demandeFilm->execute();
+        }
 	
 		
 	}

@@ -36,9 +36,18 @@ $film = FilmDAO::detaillerFilm($idFilm);
 		</div>
 
 
-        <input type="submit" value="Enregistrer">
+        <button class="btn waves-effect brown lighten-2" type="submit" name="action">Enregistrer
+                        <i class="material-icons right">send</i>
+        </button>
         <input type="hidden" name="id" value="<?= $film->getId() ?>"/>
     </form>
+    <form action="traitement-supprimer-film.php" method="post">
+        <button class="btn waves-effect brown lighten-2" type="submit" name="action">Supprimer
+                        <i class="material-icons right">send</i>
+        </button>
+        <input type="hidden" name="id" value="<?= $film->getId() ?>"/>
+    </form>
+
 
 <?php
 include "../Ressources/footer.php";

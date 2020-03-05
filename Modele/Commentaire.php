@@ -4,22 +4,22 @@
 class Commentaire
 {
     protected $id;
-    protected $id_utilisateur;
-    protected $id_film;
+    protected $idUtilisateur;
+    protected $idFilm;
     protected $text;
 
     /**
      * commentaire constructor.
      * @param $id
      * @param $id_utilisateur
-     * @param $id_film
+     * @param $idFilm
      * @param $text
      */
-    public function __construct($id, $id_utilisateur, $id_film, $text)
+    public function __construct($id, $idUtilisateur, $idFilm, $text)
     {
         $this->id = $id;
-        $this->id_utilisateur = $id_utilisateur;
-        $this->id_film = $id_film;
+        $this->idUtilisateur = $idUtilisateur;
+        $this->idFilm = $idFilm;
         $this->text = $text;
     }
 
@@ -44,15 +44,15 @@ class Commentaire
      */
     public function getIdUtilisateur()
     {
-        return $this->id_utilisateur;
+        return $this->idUtilisateur;
     }
 
     /**
-     * @param mixed $id_utilisateur
+     * @param mixed $idUtilisateur
      */
-    public function setIdUtilisateur($id_utilisateur): void
+    public function setIdUtilisateur($idUtilisateur): void
     {
-        $this->id_utilisateur = $id_utilisateur;
+        $this->idUtilisateur = $idUtilisateur;
     }
 
     /**
@@ -60,15 +60,15 @@ class Commentaire
      */
     public function getIdFilm()
     {
-        return $this->id_film;
+        return $this->idFilm;
     }
 
     /**
      * @param mixed $id_film
      */
-    public function setIdFilm($id_film): void
+    public function setIdFilm($idFilm): void
     {
-        $this->id_film = $id_film;
+        $this->idFilm = $idFilm;
     }
 
     /**
