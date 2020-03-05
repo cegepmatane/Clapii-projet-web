@@ -1,7 +1,7 @@
 <?php
 
 
-class UtilisateurSQL
+interface UtilisateurSQL
 {
     public const SELECT_ALL_UTILISATEUR = "SELECT * FROM utilisateur";
     public const SELECT_UTILISATEUR_BY_PSEUDO_AND_PASSWORD = "SELECT * FROM utilisateur WHERE pseudo = :pseudo AND password = :password";
