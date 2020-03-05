@@ -25,6 +25,16 @@ $film = FilmDAO::detaillerFilm($idFilm);
             <input type="text" name="synopsis" id="synopsis" value="<?= $film->getSynopsis() ?>"/>
         </div>
 
+        <div>
+				<label for="origine">Origine</label>
+				<input type="text" name="origine" id="origine" value="<?= $film->getOrigine() ?>"/>			
+		</div>
+
+		<div>
+				<label for="duree">Durée (minutes)</label>
+				<input type="text" name="duree" id="duree" value="<?= $film->getDuree() ?>"/>			
+		</div>
+
 
         <input type="submit" value="Enregistrer">
         <input type="hidden" name="id" value="<?= $film->getId() ?>"/>

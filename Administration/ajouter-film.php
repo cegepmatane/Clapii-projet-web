@@ -21,6 +21,16 @@
 				<label for="synopsis">Synopsis</label>
 				<input type="text" name="synopsis" id="synopsis" value="Synopsis"/>			
 			</div>
+
+			<div>
+				<label for="origine">Origine</label>
+				<input type="text" name="origine" id="origine" value="Origine"/>			
+			</div>
+
+			<div>
+				<label for="duree">Durée (minutes)</label>
+				<input type="text" name="duree" id="duree" value="0"/>			
+			</div>
 			
 			
 			
