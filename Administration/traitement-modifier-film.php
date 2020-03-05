@@ -12,7 +12,7 @@
     );
     
     $film = filter_input_array(INPUT_POST, $filtresFilm);
-    $objetFilm = new Film($film['id'],$film['titre'],$film['synopsis'],$film['date']);
+    $objetFilm = new Film($film['id'],$film['titre'],$film['synopsis'],$film['date'], "", "");
     FilmDAO::modifierFilm($objetFilm);
     ?>
         <header><h1>Le film a été modifié</h1></header>
