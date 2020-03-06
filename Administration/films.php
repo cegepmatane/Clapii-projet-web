@@ -6,7 +6,6 @@ include "../Ressources/header.php";
 include "./Donnee/FilmDAO.php";
 $films = FilmDAO::listerFilms();
 ?>
-<h1>Vous êtes en mode admin!!!</h1>
 <div>
     <ul>
         <?php foreach ($films as $film):?>
