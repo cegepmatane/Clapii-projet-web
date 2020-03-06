@@ -26,7 +26,7 @@ class UtilisateurDAO implements UtilisateurSQL
     }
 
     public static function insererUtilisateur($utilisateur){
-        
+
         $connexion = BaseDeDonnees::getInstance()->getConnexion();
         $demandeUtilisateur = $connexion->prepare(self::INSERT_UTILISATEUR_BY_PSEUDO_NOM_PRENOM_MAIL_PASSWORD);
 
