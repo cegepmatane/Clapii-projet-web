@@ -12,20 +12,21 @@ $film = FilmDAO::detaillerFilm($idFilm);
         <div class="card-panel grey lighten-5 z-depth-1">
             <div class="row valign-wrapper">
                 <div class="col s3">
-                    <img src="Ressources/Images/PlaceHolder.jpg" alt="" class="responsive-img"> <!-- notice the "circle" class -->
+                    <img src="Ressources/Images/PlaceHolder.jpg" alt="" class="responsive-img">
+                    <!-- notice the "circle" class -->
                 </div>
                 <div class="col s7">
-                    <h1><?=$film->getTitre();?> </h1>
+                    <h1><?= $film->getTitre(); ?> </h1>
                     <p><b>Origine : </b>$origine</p>
                     <p><b>Durée : </b>$duree</p>
-                    <p><b>Année de sortie : </b><?=$film->getDate();?></p>
+                    <p><b>Année de sortie : </b><?= $film->getDate(); ?></p>
                     <p><b>Genre : </b>$genre</p>
                     <p><b>Casting : </b>$acteur1, $acteur2, $acteur3, $acteur4</p>
-                    <p style="text-align:justify"><b>Synopsis: </b><?=$film->getSynopsis();?>
+                    <p style="text-align:justify"><b>Synopsis: </b><?= $film->getSynopsis(); ?>
                     </p>
                 </div>
                 <div class="col s2">
-                    <a class="waves-effect waves-light btn-large">Commenter</a>
+                    <button class="waves-effect waves-light btn-large" onclick="toggleCommentaire()" id="bouton">Commenter</button>
                 </div>
             </div>
         </div>
@@ -47,83 +48,115 @@ $film = FilmDAO::detaillerFilm($idFilm);
         <div class="card grey lighten-4">
             <div class="card-content brown-text text-darken-3">
                 <span class="card-title">Commentaires</span>
-                <ul class="collection">
-                    <li class="collection-item">
-                        <div class="row valign-wrapper">
-                            <div class="col s2">
-                                <img class="thumbnail" src="Ressources/Images/PlaceHolder.jpg">
+                <div id="listerCommentaires" style="display: block;">
+                    <ul class="collection">
+                        <li class="collection-item">
+                            <div class="row valign-wrapper">
+                                <div class="col s2">
+                                    <img class="thumbnail" src="Ressources/Images/PlaceHolder.jpg">
+                                </div>
+                                <div class="col s8">
+                                    <b>Pseudo</b>
+                                    <p style="text-align:justify">Etiam lectus eros, vestibulum eu iaculis non, tempor
+                                        vitae eros. Nullam vitae scelerisque dolor.
+                                        Curabitur sollicitudin facilisis lectus. Suspendisse potenti. Fusce sit amet
+                                        diam nulla. Ut et aliquet lorem.
+                                        Quisque sit amet nisi est. Donec et ipsum ut elit finibus molestie. Ut ac metus
+                                        quis est feugiat gravida ac
+                                        in felis. Duis a justo nisl. In condimentum convallis mattis. </p>
+                                </div>
+                                <div class="col s3">
+                                    <i class="material-icons">movie_filter</i>
+                                    <i class="material-icons">movie_filter</i>
+                                    <i class="material-icons">movie_filter</i>
+                                    <i class="material-icons">movie_filter</i>
+                                    <i class="material-icons">movie_filter</i>
+                                </div>
+                                <div class="col s1">
+                                    <div><a class="waves-effect waves-teal btn-flat"><i class="material-icons">arrow_upward</i></a>
+                                    </div>
+                                    <div><a class="waves-effect waves-teal btn-flat"><i class="material-icons">arrow_downward</i></a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col s8">
-                                <b>Pseudo</b>
-                                <p style="text-align:justify">Etiam lectus eros, vestibulum eu iaculis non, tempor vitae eros. Nullam vitae scelerisque dolor.
-                                    Curabitur sollicitudin facilisis lectus. Suspendisse potenti. Fusce sit amet diam nulla. Ut et aliquet lorem.
-                                    Quisque sit amet nisi est. Donec et ipsum ut elit finibus molestie. Ut ac metus quis est feugiat gravida ac
-                                    in felis. Duis a justo nisl. In condimentum convallis mattis. </p>
+                        </li>
+                        <li class="collection-item">
+                            <div class="row valign-wrapper">
+                                <div class="col s2">
+                                    <img class="thumbnail" src="Ressources/Images/PlaceHolder.jpg">
+                                </div>
+                                <div class="col s8">
+                                    <b>Pseudo</b>
+                                    <p style="text-align:justify">Etiam lectus eros, vestibulum eu iaculis non, tempor
+                                        vitae eros. Nullam vitae scelerisque dolor.
+                                        Curabitur sollicitudin facilisis lectus. Suspendisse potenti. Fusce sit amet
+                                        diam nulla. Ut et aliquet lorem.
+                                        Quisque sit amet nisi est. Donec et ipsum ut elit finibus molestie. Ut ac metus
+                                        quis est feugiat gravida ac
+                                        in felis. Duis a justo nisl. In condimentum convallis mattis. </p>
+                                </div>
+                                <div class="col s3">
+                                    <i class="material-icons">movie_filter</i>
+                                    <i class="material-icons">movie_filter</i>
+                                    <i class="material-icons">movie_filter</i>
+                                    <i class="material-icons">movie_filter</i>
+                                    <i class="material-icons">movie_filter</i>
+                                </div>
+                                <div class="col s1">
+                                    <div><a class="waves-effect waves-teal btn-flat"><i class="material-icons">arrow_upward</i></a>
+                                    </div>
+                                    <div><a class="waves-effect waves-teal btn-flat"><i class="material-icons">arrow_downward</i></a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col s3">
-                                <i class="material-icons">movie_filter</i>
-                                <i class="material-icons">movie_filter</i>
-                                <i class="material-icons">movie_filter</i>
-                                <i class="material-icons">movie_filter</i>
-                                <i class="material-icons">movie_filter</i>
+                        </li>
+                        <li class="collection-item">
+                            <div class="row valign-wrapper">
+                                <div class="col s2">
+                                    <img class="thumbnail" src="Ressources/Images/PlaceHolder.jpg">
+                                </div>
+                                <div class="col s8">
+                                    <b>Pseudo</b>
+                                    <p style="text-align:justify">Etiam lectus eros, vestibulum eu iaculis non, tempor
+                                        vitae eros. Nullam vitae scelerisque dolor.
+                                        Curabitur sollicitudin facilisis lectus. Suspendisse potenti. Fusce sit amet
+                                        diam nulla. Ut et aliquet lorem.
+                                        Quisque sit amet nisi est. Donec et ipsum ut elit finibus molestie. Ut ac metus
+                                        quis est feugiat gravida ac
+                                        in felis. Duis a justo nisl. In condimentum convallis mattis. </p>
+                                </div>
+                                <div class="col s3">
+                                    <i class="material-icons">movie_filter</i>
+                                    <i class="material-icons">movie_filter</i>
+                                    <i class="material-icons">movie_filter</i>
+                                    <i class="material-icons">movie_filter</i>
+                                    <i class="material-icons">movie_filter</i>
+                                </div>
+                                <div class="col s1">
+                                    <div><a class="waves-effect waves-teal btn-flat"><i class="material-icons">arrow_upward</i></a>
+                                    </div>
+                                    <div><a class="waves-effect waves-teal btn-flat"><i class="material-icons">arrow_downward</i></a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col s1">
-                                <div><a class="waves-effect waves-teal btn-flat"><i class="material-icons">arrow_upward</i></a></div>
-                                <div><a class="waves-effect waves-teal btn-flat"><i class="material-icons">arrow_downward</i></a></div>
-                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="ecrireCommentaire" style="display: none;">
+                    <div class="card-panel grey lighten-5 z-depth-1">
+                        <div class="center-align">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="textarea" class="materialize-textarea"></textarea>
+                                        <label for="textarea">Commentaire</label>
+                                    </div>
+                                </div>
+                            </form>
+
                         </div>
-                    </li>
-                    <li class="collection-item">
-                        <div class="row valign-wrapper">
-                            <div class="col s2">
-                                <img class="thumbnail" src="Ressources/Images/PlaceHolder.jpg">
-                            </div>
-                            <div class="col s8">
-                                <b>Pseudo</b>
-                                <p style="text-align:justify">Etiam lectus eros, vestibulum eu iaculis non, tempor vitae eros. Nullam vitae scelerisque dolor.
-                                    Curabitur sollicitudin facilisis lectus. Suspendisse potenti. Fusce sit amet diam nulla. Ut et aliquet lorem.
-                                    Quisque sit amet nisi est. Donec et ipsum ut elit finibus molestie. Ut ac metus quis est feugiat gravida ac
-                                    in felis. Duis a justo nisl. In condimentum convallis mattis. </p>
-                            </div>
-                            <div class="col s3">
-                                <i class="material-icons">movie_filter</i>
-                                <i class="material-icons">movie_filter</i>
-                                <i class="material-icons">movie_filter</i>
-                                <i class="material-icons">movie_filter</i>
-                                <i class="material-icons">movie_filter</i>
-                            </div>
-                            <div class="col s1">
-                                <div><a class="waves-effect waves-teal btn-flat"><i class="material-icons">arrow_upward</i></a></div>
-                                <div><a class="waves-effect waves-teal btn-flat"><i class="material-icons">arrow_downward</i></a></div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="collection-item">
-                        <div class="row valign-wrapper">
-                            <div class="col s2">
-                                <img class="thumbnail" src="Ressources/Images/PlaceHolder.jpg">
-                            </div>
-                            <div class="col s8">
-                                <b>Pseudo</b>
-                                <p style="text-align:justify">Etiam lectus eros, vestibulum eu iaculis non, tempor vitae eros. Nullam vitae scelerisque dolor.
-                                    Curabitur sollicitudin facilisis lectus. Suspendisse potenti. Fusce sit amet diam nulla. Ut et aliquet lorem.
-                                    Quisque sit amet nisi est. Donec et ipsum ut elit finibus molestie. Ut ac metus quis est feugiat gravida ac
-                                    in felis. Duis a justo nisl. In condimentum convallis mattis. </p>
-                            </div>
-                            <div class="col s3">
-                                <i class="material-icons">movie_filter</i>
-                                <i class="material-icons">movie_filter</i>
-                                <i class="material-icons">movie_filter</i>
-                                <i class="material-icons">movie_filter</i>
-                                <i class="material-icons">movie_filter</i>
-                            </div>
-                            <div class="col s1">
-                                <div><a class="waves-effect waves-teal btn-flat"><i class="material-icons">arrow_upward</i></a></div>
-                                <div><a class="waves-effect waves-teal btn-flat"><i class="material-icons">arrow_downward</i></a></div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
             <div class="card-action">
                 <a href="#">Plus de résultats</a>
@@ -132,6 +165,25 @@ $film = FilmDAO::detaillerFilm($idFilm);
 
     </div>
     <a href="films.php" class="brown lighten-2 btn"><i class="material-icons left">arrow_back</i>Retour</a>
+
+<script>
+    function toggleCommentaire(){
+
+        if(document.getElementById("listerCommentaires").style.display == "none"){
+            document.getElementById("ecrireCommentaire").style.display="none";
+            document.getElementById("bouton").innerHTML="Commenter";
+            document.getElementById("listerCommentaires").style.display="block";
+            console.log("none");
+        }
+        else if(document.getElementById("listerCommentaires").style.display == "block"){
+            document.getElementById("listerCommentaires").style.display="none";
+            document.getElementById("bouton").innerHTML="Annuler";
+            document.getElementById("ecrireCommentaire").style.display="block";
+            console.log("!none");
+        }
+
+    }
+</script>
 
 <?php
 include "./Ressources/footer.php";
