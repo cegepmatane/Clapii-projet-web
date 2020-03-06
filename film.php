@@ -152,7 +152,9 @@ $film = FilmDAO::detaillerFilm($idFilm);
                                         <label for="textarea">Votre commentaire</label>
                                     </div>
                                 </div>
-                                <a class="waves-effect waves-light btn"><i class="material-icons right">send</i>Envoyer</a>
+                                <div class="row">
+                                    <div class="col s9 offset-s6"><a class="waves-effect waves-light btn"><i class="material-icons right">send</i>Envoyer</a></div>
+                                </div>
                             </form>
 
                         </div>
