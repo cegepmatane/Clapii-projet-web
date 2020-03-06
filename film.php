@@ -47,7 +47,7 @@ $film = FilmDAO::detaillerFilm($idFilm);
     <div class="container">
         <div class="card grey lighten-4">
             <div class="card-content brown-text text-darken-3">
-                <span class="card-title">Commentaires</span>
+                <span class="card-title" id="com">Commentaires</span>
                 <div id="listerCommentaires" style="display: block;">
                     <ul class="collection">
                         <li class="collection-item">
@@ -149,16 +149,17 @@ $film = FilmDAO::detaillerFilm($idFilm);
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <textarea id="textarea" class="materialize-textarea"></textarea>
-                                        <label for="textarea">Commentaire</label>
+                                        <label for="textarea">Votre commentaire</label>
                                     </div>
                                 </div>
+                                <a class="waves-effect waves-light btn"><i class="material-icons right">send</i>Envoyer</a>
                             </form>
 
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card-action">
+            <div class="card-action" id="resultats">
                 <a href="#">Plus de résultats</a>
             </div>
         </div>
@@ -171,13 +172,17 @@ $film = FilmDAO::detaillerFilm($idFilm);
 
         if(document.getElementById("listerCommentaires").style.display == "none"){
             document.getElementById("ecrireCommentaire").style.display="none";
+            document.getElementById("resultats").style.display="block";
             document.getElementById("bouton").innerHTML="Commenter";
+            document.getElementById("com").innerHTML="Commentaires";
             document.getElementById("listerCommentaires").style.display="block";
             console.log("none");
         }
         else if(document.getElementById("listerCommentaires").style.display == "block"){
             document.getElementById("listerCommentaires").style.display="none";
+            document.getElementById("resultats").style.display="none";
             document.getElementById("bouton").innerHTML="Annuler";
+            document.getElementById("com").innerHTML="Commentaire";
             document.getElementById("ecrireCommentaire").style.display="block";
             console.log("!none");
         }
