@@ -1,7 +1,7 @@
 <?php
 
 
-class Transaction
+class Achat
 {
     protected $id;
     protected $idUtilisateur;

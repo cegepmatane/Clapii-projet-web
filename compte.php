@@ -34,7 +34,7 @@ include "./Ressources/header.php";
 
                   <input type="hidden" name="src" value="1">
                   <input type="hidden" name="sra" value="1">	
-                  <input type="hidden" name="return" value="http://localhost/Clapii-projet-web/compte.php">
+                  <input type="hidden" name="return" value="http://localhost/Clapii-projet-web/Action/traitement-achat.php">
                   <input type="hidden" name="cancel_return" value="http://localhost/Clapii-projet-web/compte.php">					
 
                   <!--input type="hidden" name="cpp_headerback_color" value="000000"/>
