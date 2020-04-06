@@ -66,19 +66,50 @@ echo count($films);
 
     function ajouterMouseOverEtOut(item, index) {
         item.onmouseover = function () {
-            mouseOver()
+            mouseOver(item.id);
         };
+
         item.onmouseout = function () {
-            mouseOut()
+                mouseOut(item.id);
         };
     }
 
-    function mouseOver() {
-        console.log("over");
+    function mouseOver(id) {
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var filmXML = this.responseText;
+                console.log(filmXML);
+
+
+
+
+                afficherFilmDetail(filmXML);
+            }
+        };
+        xhttp.open("GET", "Action/recuperer-details-film.php?idFilm="+id, true);
+        xhttp.send();
+
+        console.log("over sur " + id);
+
     }
 
-    function mouseOut() {
+    function mouseOut(id) {
         console.log("out");
+
+    }
+
+    function afficherFilmDetail(filmXML) {
+        parser = new DOMParser();
+        xmlDoc = parser.parseFromString(filmXML,"text/xml");
+
+        var titre = xmlDoc.getElementsByTagName("titre")[0].childNodes[0].nodeValue;
+        var date = xmlDoc.getElementsByTagName("date")[0].childNodes[0].nodeValue;
+        var synopsis = xmlDoc.getElementsByTagName("synopsis")[0].childNodes[0].nodeValue;
+        var id = xmlDoc.getElementsByTagName("film")[0].id;
+
+        console.log(id + " " + titre + " " + date + " " + synopsis);
     }
 
 </script>

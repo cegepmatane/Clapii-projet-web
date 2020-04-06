@@ -10,11 +10,11 @@ include "./Ressources/header.php"; ?>
                     <div class="row">
                         <div class="col s6">
                             <label for="pseudo">Pseudo</label>
-                            <input name="fname" placeholder="Clapii" id="pseudo" type="text" class="validate">
+                            <input name="fpseudo" placeholder="Clapii" id="cpseudo" type="text" class="validate">
                         </div>
                         <div class="col s6">
                             <label for="password">Mot de passe</label>
-                            <input name="fmdp" id="password" type="password" class="validate">
+                            <input name="fmdp" id="cpassword" type="password" class="validate">
                         </div>
 
                     </div>
@@ -32,7 +32,7 @@ include "./Ressources/header.php"; ?>
                     <div class="row">
                         <div class="col s6">
                             <label for="pseudo">Pseudo</label>
-                            <input name="fpseudo2" placeholder="Clapii" id="pseudo" type="text" class="validate">
+                            <input name="fpseudo" placeholder="Clapii" id="ipseudo" type="text" class="validate">
                         </div>
 
                         <div class="col s6">
@@ -56,7 +56,7 @@ include "./Ressources/header.php"; ?>
                     <div class="row">
                         <div class="col s6">
                             <label for="password">Mot de passe</label>
-                            <input name="fmdp2" id="password" type="password" class="validate">
+                            <input name="fmdp2" id="ipassword" type="password" class="validate">
                         </div>
                         <div class="col s6">
                             <label for="password">Confirmation mot de passe</label>
@@ -72,4 +72,8 @@ include "./Ressources/header.php"; ?>
         </div>
 
     </div>
+
+<script>
+    // clement met ton ajax ici
+</script>
 

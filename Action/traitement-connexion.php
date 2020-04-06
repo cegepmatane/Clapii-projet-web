@@ -2,7 +2,7 @@
 
 session_start();
 
-include "./Donnee/UtilisateurDAO.php";
+include "../Donnee/UtilisateurDAO.php";
 if (isset($_POST['pseudo'], $_POST['password']))
 {
     $pseudo = $_POST['pseudo'];
