@@ -6,6 +6,16 @@ include_once "./Donnee/BaseDeDonnees.php";
 class CommentaireDAO implements CommentaireSQL
 {
 
+    public static function insererCommentaire($commentaire, $idFilm, $idUtilisateur)
+    {
+        $connexion = BaseDeDonnees::getInstance()->getConnexion();
+        $demandeCommentaire = $connexion->prepare(self::INSERT_COMMENTAIRE_BY_ID_UTILISATEUR_ID_FILM_TEXT);
+        $demandeCommentaire->bindParam(':id_utilisateur', $idUtilisateur, PDO::PARAM_INT);
+        $demandeCommentaire->bindParam(':id_film', $idUtilisateur, PDO::PARAM_INT);
+        $demandeCommentaire->bindParam(':text', $commentaire, PDO::PARAM_STR);
+        $demandeCommentaire->execute();
+    }
+
     public static function recupererCommentaireParIdUtilisateur($idUtilisateur, $commentaire)
     {
 

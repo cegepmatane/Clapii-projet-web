@@ -82,9 +82,6 @@ echo count($films);
                 var filmXML = this.responseText;
                 console.log(filmXML);
 
-
-
-
                 afficherFilmDetail(filmXML);
             }
         };
