@@ -167,7 +167,7 @@ $film = FilmDAO::detaillerFilm($idFilm);
         </div>
 
     </div>
-    <a href="films.php" class="brown lighten-2 btn"><i class="material-icons left">arrow_back</i>Retour</a>
+    <a href="liste_film.php" class="brown lighten-2 btn"><i class="material-icons left">arrow_back</i>Retour</a>
 
 <script>
     function toggleCommentaire(){
