@@ -194,10 +194,11 @@ $film = FilmDAO::detaillerFilm($idFilm);
     function envoyerCommentaire(){
         console.log(document.getElementById("commentaire").value);
         var xhttp = new XMLHttpRequest();
-        
+        var film = <?php echo $_GET['id']?>;
+
         xhttp.open("POST", "Action/traitement-ajouter-commentaire.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("id_utilisateur=0"."&id_film=" . $_GET['id'] . "&text=" . document.getElementById("commentaire").value);
+        xhttp.send("id_utilisateur=0"+"&id_film="+film+"&text="+document.getElementById("commentaire").value);
     }
 
 </script>
