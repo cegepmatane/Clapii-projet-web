@@ -148,12 +148,12 @@ $film = FilmDAO::detaillerFilm($idFilm);
                             <form class="col s12">
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <textarea id="textarea" class="materialize-textarea"></textarea>
+                                        <textarea id="commentaire" class="materialize-textarea"></textarea>
                                         <label for="textarea">Votre commentaire</label>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col s9 offset-s6"><a class="waves-effect waves-light btn"><i class="material-icons right">send</i>Envoyer</a></div>
+                                    <div class="col s9 offset-s6"><a class="waves-effect waves-light btn" onclick="envoyerCommentaire()"><i class="material-icons right">send</i>Envoyer</a></div>
                                 </div>
                             </form>
 
@@ -190,6 +190,16 @@ $film = FilmDAO::detaillerFilm($idFilm);
         }
 
     }
+
+    function envoyerCommentaire(){
+        console.log(document.getElementById("commentaire").value);
+        var xhttp = new XMLHttpRequest();
+        
+        xhttp.open("POST", "Action/traitement-ajouter-commentaire.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("id_utilisateur=0"."&id_film=" . $_GET['id'] . "&text=" . document.getElementById("commentaire").value);
+    }
+
 </script>
 
 <?php
