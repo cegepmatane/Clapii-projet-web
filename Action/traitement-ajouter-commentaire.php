@@ -2,13 +2,12 @@
 
 include "../Donnee/CommentaireDAO.php";
 
-echo "insertion";
-if (isset($_GET['id_Film'])&&isset($_GET['id_Film'])&&isset($_GET['id_Film'])){
-    $idFilm = $_GET['id_Film'];
+if (isset($_GET['id_film']) && isset($_GET['id_utilisateur']) && isset($_GET['text'])){
+    $idFilm = $_GET['id_film'];
     $commentaire = $_GET['text'];
     $idUtilisateur = $_GET['id_utilisateur'];
     CommentaireDAO::insererCommentaire($commentaire, $idFilm, $idUtilisateur);
     echo "insertion commentaire effectuee";
 } else {
-    echo "variables commentaires invalides";
+    echo "variables commentaire invalides";
 }

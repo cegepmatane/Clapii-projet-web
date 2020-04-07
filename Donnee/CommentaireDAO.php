@@ -1,8 +1,7 @@
 <?php
-
-include_once "./PhpSQL/CommentaireSQL.php";
-include_once "./Modele/Commentaire.php";
-include_once "./Donnee/BaseDeDonnees.php";
+include_once "../PhpSQL/CommentaireSQL.php";
+include_once "../Modele/Commentaire.php";
+include_once "../Donnee/BaseDeDonnees.php";
 
 class CommentaireDAO implements CommentaireSQL
 {

@@ -192,13 +192,13 @@ $film = FilmDAO::detaillerFilm($idFilm);
     }
 
     function envoyerCommentaire(){
-        console.log(document.getElementById("commentaire").value);
-        var xhttp = new XMLHttpRequest();
+        var com = document.getElementById("commentaire").value;
         var film = <?php echo $_GET['id']?>;
 
+        var xhttp = new XMLHttpRequest();
         xhttp.open("POST", "Action/traitement-ajouter-commentaire.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("id_utilisateur=0"+"&id_film="+film+"&text="+document.getElementById("commentaire").value);
+        xhttp.send("id_utilisateur=1&id_film="+film+"&text="+com);
     }
 
 </script>
