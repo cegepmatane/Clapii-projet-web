@@ -1,5 +1,12 @@
 <?php
 session_start();
+if( isset($_SESSION['id'])){
+    $pseudo = $_SESSION['pseudo'];
+    $connecter = true;
+}else{
+    $connecter = false;
+}
+
 ?>
 
 <!doctype html>
@@ -30,8 +37,13 @@ session_start();
                     <i class="material-icons brown-text text-darken-3">close</i>
                   </div>
              </form></li >
-              <li ><a href="inscription_connexion.php"><i class="material-icons brown-text text-darken-3">account_circle</i></a></li >
+              <?php if($connecter):?>
+                  <li ><a class="brown-text text-darken-3" href="compte.php"><?=$pseudo ?></a></li >
 
+
+              <?php else:?>
+                  <li ><a href="inscription_connexion.php"><i class="material-icons brown-text text-darken-3">account_circle</i></a></li >
+              <?php endif;?>
           </ul>
 
     </div>

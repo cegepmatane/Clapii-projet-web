@@ -10,7 +10,12 @@ if (isset($_POST['pseudo'], $_POST['password']))
 
     $utilisateur = UtilisateurDAO::recupererUtilisateur($pseudo, $password);
     if (isset($utilisateur)){
-        $_SESSION['utilisateur'] = $utilisateur;
+        $_SESSION['id'] = $utilisateur->getId();
+        $_SESSION['pseudo'] = $utilisateur->getPseudo();
     }
 
 }
+
+header('Location: ../inscription_connexion.php?');
+exit;
+?>

@@ -1,9 +1,16 @@
 <?php
-include "./Ressources/header.php"; ?>
+include "./Ressources/header.php";
+
+if( isset($_SESSION['id'])){
+   header('Location: ./index.php?');
+   exit;
+}
+
+?>
     <div class=container>
 
         <div class="row">
-            <form class="col s6" method="post" action="compte.php">
+            <form class="col s6" method="post" action="Action/traitement-connexion.php">
 
                 <div class="card-panel grey lighten-5 z-depth-1">
 
@@ -18,7 +25,7 @@ include "./Ressources/header.php"; ?>
                         </div>
 
                     </div>
-                    <button href="compte.php" class="btn waves-effect waves-light" type="submit" name="action">Se connecter
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Se connecter
                         <i class="material-icons right">send</i>
                     </button>
                 </div>
@@ -60,7 +67,7 @@ include "./Ressources/header.php"; ?>
                         </div>
                         <div class="col s6">
                             <label for="password">Confirmation mot de passe</label>
-                            <input name="comfirm-password-" id="comfirm-password" type="password" class="validate">
+                            <input name="comfirm-password" id="comfirm-password" type="password" class="validate">
                         </div>
                     </div>
 
