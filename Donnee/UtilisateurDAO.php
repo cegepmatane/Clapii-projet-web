@@ -15,14 +15,20 @@ class UtilisateurDAO implements UtilisateurSQL
         $demandeUtilisateur->execute();
 
         $utilisateur = $demandeUtilisateur->fetch(PDO::FETCH_ASSOC);
+        var_dump($utilisateur);
+        if($utilisateur!=false){
+            return new Utilisateur(
+                $utilisateur['id'],
+                $utilisateur['pseudo'],
+                $utilisateur['nom'],
+                $utilisateur['prenom'],
+                $utilisateur['mail'],
+                $utilisateur['password']);
+        }
+        else{
+            return $utilisateur;
+        }
 
-        return new Utilisateur(
-            $utilisateur['id'],
-            $utilisateur['pseudo'],
-            $utilisateur['nom'],
-            $utilisateur['prenom'],
-            $utilisateur['mail'],
-            $utilisateur['password']);
     }
 
     public static function pseudoEstDisponible($pseudo){

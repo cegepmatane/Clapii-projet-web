@@ -6,16 +6,19 @@ include "../Donnee/UtilisateurDAO.php";
 if (isset($_POST['pseudo'], $_POST['password']))
 {
     $pseudo = $_POST['pseudo'];
-    $password = $_POST['password'];
+    $password = hash('sha512',$_POST["password"]) ;
 
     $utilisateur = UtilisateurDAO::recupererUtilisateur($pseudo, $password);
-    if (isset($utilisateur)){
+    $parametres = '';
+    if ($utilisateur!=false){
         $_SESSION['id'] = $utilisateur->getId();
         $_SESSION['pseudo'] = $utilisateur->getPseudo();
+    }else{
+        $parametres.='mauvaisCredentials=true';
     }
-
+    
 }
 
-header('Location: ../inscription_connexion.php?');
+header('Location: ../inscription_connexion.php?'.$parametres);
 exit;
 ?>

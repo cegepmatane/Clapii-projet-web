@@ -58,11 +58,11 @@ var_dump($_POST);
 
 
                     </div>
-                    <input type="hidden" name="pseudo" value="<?= $_POST["pseudo"] ?>"/>
+                    <input type="hidden" name="pseudo" value="<?= $_POST["pseudo"]?>"/>
                     <input type="hidden" name="mail" value="<?= $_POST["mail"] ?>"/>
                     <input type="hidden" name="prenom" value="<?= $_POST["prenom"] ?>"/>
                     <input type="hidden" name="nom" value="<?= $_POST["nom"] ?>"/>
-                    <input type="hidden" name="password" value="<?= $_POST["password"] ?>"/>
+                    <input type="hidden" name="password" value="<?= hash('sha512',$_POST["password"])  ?>"/>
                     <button class="btn waves-effect waves-light" type="submit" name="action">Valider
                         <i class="material-icons right">send</i>
                     </button>
