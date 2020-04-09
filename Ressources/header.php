@@ -22,7 +22,7 @@ session_start();
           <a href="index.php" class="brand-logo brown-text text-darken-3">Logo</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li ><a  class="brown-text text-darken-3" href="index.php">Accueil</a></li>
-            <li ><a  class="brown-text text-darken-3" href="liste_.php">Films</a></li>
+            <li ><a  class="brown-text text-darken-3" href="liste_film.php">Films</a></li>
             <li class="barre-recherche"><form>
                  <div class="input-field">
                     <input id="search" type="search" required>
