@@ -4,7 +4,6 @@ session_start();
 
 include "../Donnee/UtilisateurDAO.php";
 
-
 $filtresUtilisateur =
     array(
         'id' => FILTER_VALIDATE_INT,
@@ -16,19 +15,36 @@ $filtresUtilisateur =
 
     );
 
-$utilisateur = filter_input_array(INPUT_POST, $filtresUtilisateur);
-$objetUtilisateur = new Utilisateur(1, $utilisateur['pseudo'],
-    $utilisateur['nom'],
-    $utilisateur['prenom'],
-    $utilisateur['mail'],
-    $utilisateur['password']);
-UtilisateurDAO::insererUtilisateur($objetUtilisateur);
+$utilisateur =filter_input_array(INPUT_POST, $filtresUtilisateur);
 
-$parametres = [];
+$parametres = '';
 
-$parametres['inscription'] = true;
+$poursuivreInscription  = true;
 
-http_redirect('../inscription_connexion.php', $parametres);
+if(!UtilisateurDAO::pseudoEstDisponible($utilisateur['pseudo'])){
+    $poursuivreInscription = false;
+    $parametres .= 'pseudoEstDisponible=false&';
+}
+if(!UtilisateurDAO::mailEstDisponible($utilisateur['mail'])){
+    $poursuivreInscription = false;
+    $parametres .= 'mailEstDisponible=false';
+}
+
+if($poursuivreInscription){
+    $objetUtilisateur = new Utilisateur(1, $utilisateur['pseudo'],
+        $utilisateur['nom'],
+        $utilisateur['prenom'],
+        $utilisateur['mail'],
+        $utilisateur['password']);
+    UtilisateurDAO::insererUtilisateur($objetUtilisateur);
+
+    $parametres .= 'inscription=true';
+}
+
+
+
+header('Location: ../inscription_connexion.php?'.$parametres);
+exit;
 
 ?>
 

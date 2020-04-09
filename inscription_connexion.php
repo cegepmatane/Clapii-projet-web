@@ -10,11 +10,11 @@ include "./Ressources/header.php"; ?>
                     <div class="row">
                         <div class="col s6">
                             <label for="pseudo">Pseudo</label>
-                            <input name="fpseudo" placeholder="Clapii" id="cpseudo" type="text" class="validate">
+                            <input name="pseudo" placeholder="Clapii" id="cpseudo" type="text" class="validate">
                         </div>
                         <div class="col s6">
                             <label for="password">Mot de passe</label>
-                            <input name="fmdp" id="cpassword" type="password" class="validate">
+                            <input name="password" id="password" type="password" class="validate">
                         </div>
 
                     </div>
@@ -32,35 +32,35 @@ include "./Ressources/header.php"; ?>
                     <div class="row">
                         <div class="col s6">
                             <label for="pseudo">Pseudo</label>
-                            <input name="fpseudo" placeholder="Clapii" id="ipseudo" type="text" class="validate">
+                            <input name="pseudo" placeholder="Clapii" id="ipseudo" type="text" class="validate">
                         </div>
 
                         <div class="col s6">
-                            <label for="email">Email</label>
-                            <input name="fmail" placeholder="Patrick.Dupont@clapii.com" id="email" type="email" class="validate">
+                            <label for="mail">Email</label>
+                            <input name="mail" placeholder="Patrick.Dupont@clapii.com" id="email" type="email" class="validate">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s6">
                             <label for="first_name">Prénom</label>
-                            <input name="fprenom" placeholder="Patrick" id="first_name" type="text" class="validate">
+                            <input name="prenom" placeholder="Patrick" id="first_name" type="text" class="validate">
                         </div>
 
 
                         <div class="col s6">
                             <label for="last_name">Nom</label>
-                            <input name="fnom" placeholder="Dupont" id="last_name" type="text" class="validate">
+                            <input name="nom" placeholder="Dupont" id="last_name" type="text" class="validate">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col s6">
                             <label for="password">Mot de passe</label>
-                            <input name="fmdp2" id="ipassword" type="password" class="validate">
+                            <input name="password" id="ipassword" type="password" class="validate">
                         </div>
                         <div class="col s6">
                             <label for="password">Confirmation mot de passe</label>
-                            <input name="fmdp3" id="comfirm-password" type="password" class="validate">
+                            <input name="comfirm-password-" id="comfirm-password" type="password" class="validate">
                         </div>
                     </div>
 

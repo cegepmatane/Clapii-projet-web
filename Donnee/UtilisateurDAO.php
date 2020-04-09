@@ -1,8 +1,8 @@
 <?php
 
-include_once "./PhpSQL/UtilisateurSQL.php";
-include_once "./Modele/Utilisateur.php";
-include_once "./Donnee/BaseDeDonnees.php";
+include_once "../PhpSQL/UtilisateurSQL.php";
+include_once "../Modele/Utilisateur.php";
+include_once "../Donnee/BaseDeDonnees.php";
 
 class UtilisateurDAO implements UtilisateurSQL
 {
@@ -24,6 +24,36 @@ class UtilisateurDAO implements UtilisateurSQL
             $utilisateur['mail'],
             $utilisateur['password']);
     }
+
+    public static function pseudoEstDisponible($pseudo){
+        $connexion = BaseDeDonnees::getInstance()->getConnexion();
+        $demandeUtilisateurs = $connexion->prepare(self::SELECT_UTILISATEUR_BY_PSEUDO);
+        $demandeUtilisateurs->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
+        $demandeUtilisateurs->execute();
+
+        $utilisateurs = $demandeUtilisateurs->fetchAll(PDO::FETCH_ASSOC);
+
+        if (count($utilisateurs)> 0){
+            return false;
+        }
+        return true;
+    }
+
+    public static function mailEstDisponible($mail){
+        $connexion = BaseDeDonnees::getInstance()->getConnexion();
+        $demandeUtilisateurs = $connexion->prepare(self::SELECT_UTILISATEUR_BY_MAIL);
+        $demandeUtilisateurs->bindParam(':mail', $mail, PDO::PARAM_STR);
+        $demandeUtilisateurs->execute();
+
+        $utilisateurs = $demandeUtilisateurs->fetchAll(PDO::FETCH_ASSOC);
+
+        if (count($utilisateurs)> 0){
+            return false;
+        }
+        return true;
+    }
+
+
 
     public static function insererUtilisateur($utilisateur){
 

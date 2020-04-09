@@ -1,5 +1,8 @@
 <?php
 include "./Ressources/header.php";
+
+var_dump($_POST);
+
 ?>
 
 <div class="container">
@@ -23,11 +26,11 @@ include "./Ressources/header.php";
                     <!--<a href="compte.php" class="btn waves-effect waves-light" type="submit" name="action">Valider
                         <i class="material-icons right">send</i>
                     </a> -->
-                    <input type="hidden" name="fpseudo2" value="<?= $_POST["fpseudo2"] ?>"/>
-                    <input type="hidden" name="fmail" value="<?= $_POST["fmail"] ?>"/>
-                    <input type="hidden" name="fprenom" value="<?= $_POST["fprenom"] ?>"/>
-                    <input type="hidden" name="fnom" value="<?= $_POST["fnom"] ?>"/>
-                    <input type="hidden" name="fmdp3" value="<?= $_POST["fmdp3"] ?>"/>
+                    <input type="hidden" name="pseudo" value="<?= $_POST["pseudo"] ?>"/>
+                    <input type="hidden" name="mail" value="<?= $_POST["mail"] ?>"/>
+                    <input type="hidden" name="prenom" value="<?= $_POST["prenom"] ?>"/>
+                    <input type="hidden" name="nom" value="<?= $_POST["nom"] ?>"/>
+                    <input type="hidden" name="password" value="<?= $_POST["password"] ?>"/>
                     <button class="btn waves-effect waves-light" type="submit" name="action">Valider
                         <i class="material-icons right">send</i>
                     </button>
