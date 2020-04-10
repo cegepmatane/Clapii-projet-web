@@ -1,8 +1,8 @@
 <?php
 
-include_once "../PhpSQL/UtilisateurSQL.php";
-include_once "../Modele/Utilisateur.php";
-include_once "../Donnee/BaseDeDonnees.php";
+include_once __DIR__."/../PhpSQL/UtilisateurSQL.php";
+include_once __DIR__."/../Modele/Utilisateur.php";
+include_once __DIR__."/../Donnee/BaseDeDonnees.php";
 
 class UtilisateurDAO implements UtilisateurSQL
 {
