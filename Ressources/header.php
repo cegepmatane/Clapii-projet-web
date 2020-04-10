@@ -40,10 +40,10 @@ if( isset($_SESSION['id'])){
                   </div>
              </form></li >
               <?php if($connecter):?>
-                  <a class='dropdown-trigger btn' href='#' data-target='dropdown' onclick="btnClicked()"><?=$pseudo ?></a>
+                  <a class='dropdown-trigger btn' href='#' data-target='dropdown'><?=$pseudo ?></a>
                   <ul id='dropdown' class='dropdown-content'>
-                      <li><a href="#!">one</a></li>
-                      <li><a href="#!">two</a></li>
+                      <li><a href="compte.php">Mon compte</a></li>
+                      <li><a href="Action/traitement-deconnexion.php">Déconnexion</a></li>
                   </ul>
 
               <?php else:?>
