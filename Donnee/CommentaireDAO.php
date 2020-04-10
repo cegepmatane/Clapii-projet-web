@@ -65,16 +65,12 @@ class CommentaireDAO implements CommentaireSQL
         $demandeCommentaire->bindParam(':id_film', $idFilm, PDO::PARAM_INT);
         $demandeCommentaire->execute();
 
-        $commentaires = $demandeCommentaire->fetchALL(PDO::FETCH_ASSOC);
+        $commentaire = $demandeCommentaire->fetch(PDO::FETCH_ASSOC);
 
-
-        for ($i = o; $i < count($commentaires); $i++) {
-            $listeCommentaire[$i] = new commentaire($commentaires[$i]['id'],
-                $commentaires['idUtilisateur'],
-                $commentaires['idFilm'],
-                $commentaires['text']);
-        }
-        return new $listeCommentaire;
+        return new commentaire($commentaire['id'],
+            $commentaire['idUtilisateur'],
+            $commentaire['idFilm'],
+            $commentaire['text']);
     }
 
     public static function modifierCommentaireParId($idCommentaire, $commentaire)

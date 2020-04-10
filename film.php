@@ -172,7 +172,6 @@ $film = FilmDAO::detaillerFilm($idFilm);
     <input type= hidden name="idFilm" value=<?= $idFilm?> >
     <?php if(isset($_SESSION['id'])):?>
         <input type=hidden name="idUtilisateur" value=<?php echo $_SESSION['id'] ?>>
-        <input type=hidden name="Commentaire" value=<?php echo  CommentaireDAO::recupererCommentaireParIdUtilisateurEtIdFilm( $_SESSION['id'], $_GET['id']); ?>>
     <?php endif; ?>
 <script>
     function toggleCommentaire(){
@@ -188,6 +187,19 @@ $film = FilmDAO::detaillerFilm($idFilm);
                console.log("none");
            }
            else if(document.getElementById("listerCommentaires").style.display == "block"){
+
+               var idFilm = document.getElementsByName("idFilm")[0].value;
+               var idUtilisateur = document.getElementsByName("idUtilisateur")[0].value;
+               var xhttp = new XMLHttpRequest();
+               xhttp.onreadystatechange = function() {
+                   if (this.readyState == 4 && this.status == 200) {
+                       var commentaireXML = this.responseText;
+                       console.log(commentaireXML);
+                   }
+               };
+               xhttp.open("GET", "Action/recuperer-commentaire.php?id_film="+idFilm+"&id_utilisateur="+idUtilisateur, true);
+               xhttp.send();
+
                document.getElementById("listerCommentaires").style.display="none";
                document.getElementById("resultats").style.display="none";
                document.getElementById("bouton").innerHTML="Annuler";
