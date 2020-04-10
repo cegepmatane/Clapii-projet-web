@@ -21,6 +21,8 @@ if( isset($_SESSION['id'])){
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="Css/materialize.min.css"  media="screen,projection"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
 </head>
 
 <body class="brown lighten-4">
@@ -38,8 +40,11 @@ if( isset($_SESSION['id'])){
                   </div>
              </form></li >
               <?php if($connecter):?>
-                  <li ><a class="brown-text text-darken-3" href="compte.php"><?=$pseudo ?></a></li >
-
+                  <a class='dropdown-trigger btn' href='#' data-target='dropdown' onclick="btnClicked()"><?=$pseudo ?></a>
+                  <ul id='dropdown' class='dropdown-content'>
+                      <li><a href="#!">one</a></li>
+                      <li><a href="#!">two</a></li>
+                  </ul>
 
               <?php else:?>
                   <li ><a href="inscription_connexion.php"><i class="material-icons brown-text text-darken-3">account_circle</i></a></li >

@@ -16,7 +16,7 @@ class CommentaireDAO implements CommentaireSQL
         $demandeCommentaire->execute();
     }
 
-    public static function recupererCommentaireParIdUtilisateur($idUtilisateur, $commentaire)
+    public static function recupererCommentaireParIdUtilisateur($idUtilisateur)
     {
 
         $connexion = BaseDeDonnees::getInstance()->getConnexion();
@@ -41,6 +41,27 @@ class CommentaireDAO implements CommentaireSQL
 
         $connexion = BaseDeDonnees::getInstance()->getConnexion();
         $demandeCommentaire = $connexion->prepare(self::SELECT_COMMENTAIRE_BY_ID_FILM);
+        $demandeCommentaire->bindParam(':id_film', $idFilm, PDO::PARAM_INT);
+        $demandeCommentaire->execute();
+
+        $commentaires = $demandeCommentaire->fetchALL(PDO::FETCH_ASSOC);
+
+
+        for ($i = o; $i < count($commentaires); $i++) {
+            $listeCommentaire[$i] = new commentaire($commentaires[$i]['id'],
+                $commentaires['idUtilisateur'],
+                $commentaires['idFilm'],
+                $commentaires['text']);
+        }
+        return new $listeCommentaire;
+    }
+
+    public static function recupererCommentaireParIdUtilisateurEtIdFilm($idUtilisateur, $idFilm)
+    {
+
+        $connexion = BaseDeDonnees::getInstance()->getConnexion();
+        $demandeCommentaire = $connexion->prepare(self::SELECT_COMMENTAIRE_BY_ID_UTILISATEUR_ID_FILM);
+        $demandeCommentaire->bindParam(':id_utilisateur', $idUtilisateur, PDO::PARAM_INT);
         $demandeCommentaire->bindParam(':id_film', $idFilm, PDO::PARAM_INT);
         $demandeCommentaire->execute();
 

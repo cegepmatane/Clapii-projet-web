@@ -16,7 +16,7 @@ if (isset($_POST['pseudo'], $_POST['password']))
     }else{
         $parametres.='mauvaisCredentials=true';
     }
-    
+
 }
 
 header('Location: ../inscription_connexion.php?'.$parametres);

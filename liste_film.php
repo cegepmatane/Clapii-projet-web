@@ -15,43 +15,23 @@ echo count($films);
         <div class="col s9">
             <?php for ($i = 0; $i < count($films); $i += 4) : ?>
                 <div class="row">
-                    <div class="col s3">
-                        <div id="<?= $films[$i]->getId();?>" class="card">
+
+                    <?php for ($j = $i; $j < count($films) || $j < $i+=4; $j++) : ?>
+                    <div class="col s3 ">
+                        <div id="simple<?= $films[$i]->getId();?>" class="card" style="visibility: visible">
+                            <div class="card-image">
+                                <img class="" src="./Ressources/Images/PlaceHolder.jpg">
+                            </div>
+                        </div>
+                        <div id="simple<?= $films[$i]->getId();?>" class="card" style="visibility: visible">
                             <div class="card-image">
                                 <img class="" src="./Ressources/Images/PlaceHolder.jpg">
                             </div>
                         </div>
                     </div>
-                    <?php if ($i + 1 < count($films)) : ?>
-                        <div class="col s3">
-                            <div id="<?= $films[$i+1]->getId();?>" class="card">
-                                <div class="card-image">
-                                    <img class="" src="./Ressources/Images/PlaceHolder.jpg">
-                                </div>
-                            </div>
-                        </div>
 
-                    <?php endif; ?>
-                    <?php if ($i + 2 < count($films)) : ?>
-                        <div class="col s3">
-                            <div id="<?= $films[$i+2]->getId();?>" class="card">
-                                <div class="card-image">
-                                    <img class="" src="./Ressources/Images/PlaceHolder.jpg">
-                                </div>
-                            </div>
-                        </div>
 
-                    <?php endif; ?>
-                    <?php if ($i + 3 < count($films)) : ?>
-                        <div class="col s3">
-                            <div id="<?= $films[$i+3]->getId();?>" class="card">
-                                <div class="card-image">
-                                    <img class="" src="./Ressources/Images/PlaceHolder.jpg">
-                                </div>
-                            </div>
-                        </div>
-
-                    <?php endif; ?>
+                    <?php endfor; ?>
 
                 </div>
             <?php endfor; ?>
@@ -67,10 +47,12 @@ echo count($films);
     function ajouterMouseOverEtOut(item, index) {
         item.onmouseover = function () {
             mouseOver(item.id);
+            document.getElementById(item.id).className = "card horizontal m4";
         };
 
         item.onmouseout = function () {
-                mouseOut(item.id);
+            mouseOut(item.id);
+            document.getElementById(item.id).className = "card";
         };
     }
 
@@ -98,6 +80,7 @@ echo count($films);
     }
 
     function afficherFilmDetail(filmXML) {
+
         parser = new DOMParser();
         xmlDoc = parser.parseFromString(filmXML,"text/xml");
 
@@ -106,7 +89,7 @@ echo count($films);
         var synopsis = xmlDoc.getElementsByTagName("synopsis")[0].childNodes[0].nodeValue;
         var id = xmlDoc.getElementsByTagName("film")[0].id;
 
-        console.log(id + " " + titre + " " + date + " " + synopsis);
+
     }
 
 </script>
