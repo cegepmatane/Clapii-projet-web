@@ -16,20 +16,14 @@ echo count($films);
             <?php for ($i = 0; $i < count($films); $i += 4) : ?>
                 <div class="row">
 
-                    <?php for ($j = $i; $j < count($films) || $j < $i+=4; $j++) : ?>
-                    <div class="col s3 ">
-                        <div id="simple<?= $films[$i]->getId();?>" class="card" style="visibility: visible">
-                            <div class="card-image">
-                                <img class="" src="./Ressources/Images/PlaceHolder.jpg">
+                    <?php for ($j = $i; $j < count($films) || $j < $i += 4; $j++) : ?>
+                        <div class="col s3 ">
+                            <div id="simple<?= $films[$i]->getId(); ?>" class="card" style="visibility: visible">
+                                <div class="card-image">
+                                    <img class="" src="./Ressources/Images/PlaceHolder.jpg">
+                                </div>
                             </div>
                         </div>
-                        <div id="simple<?= $films[$i]->getId();?>" class="card" style="visibility: visible">
-                            <div class="card-image">
-                                <img class="" src="./Ressources/Images/PlaceHolder.jpg">
-                            </div>
-                        </div>
-                    </div>
-
 
                     <?php endfor; ?>
 
@@ -59,7 +53,7 @@ echo count($films);
     function mouseOver(id) {
 
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
+        xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var filmXML = this.responseText;
                 console.log(filmXML);
@@ -67,7 +61,7 @@ echo count($films);
                 afficherFilmDetail(filmXML);
             }
         };
-        xhttp.open("GET", "Action/recuperer-details-film.php?idFilm="+id, true);
+        xhttp.open("GET", "Action/recuperer-details-film.php?idFilm=" + id, true);
         xhttp.send();
 
         console.log("over sur " + id);
@@ -82,7 +76,7 @@ echo count($films);
     function afficherFilmDetail(filmXML) {
 
         parser = new DOMParser();
-        xmlDoc = parser.parseFromString(filmXML,"text/xml");
+        xmlDoc = parser.parseFromString(filmXML, "text/xml");
 
         var titre = xmlDoc.getElementsByTagName("titre")[0].childNodes[0].nodeValue;
         var date = xmlDoc.getElementsByTagName("date")[0].childNodes[0].nodeValue;

@@ -16,7 +16,7 @@ class CommentaireDAO implements CommentaireSQL
         $demandeCommentaire->execute();
     }
 
-    public static function recupererCommentaireParIdUtilisateur($idUtilisateur)
+    public static function recupererListeCommentaireParIdUtilisateur($idUtilisateur)
     {
 
         $connexion = BaseDeDonnees::getInstance()->getConnexion();
@@ -28,15 +28,15 @@ class CommentaireDAO implements CommentaireSQL
 
         for ($i = o; $i < count($commentaires); $i++) {
             $listeCommentaire[$i] = new commentaire($commentaires[$i]['id'],
-                $commentaires['idUtilisateur'],
-                $commentaires['idFilm'],
-                $commentaires['text']);
+                $commentaires[$i]['idUtilisateur'],
+                $commentaires[$i]['idFilm'],
+                $commentaires[$i]['text']);
         }
         return $listeCommentaire;
 
     }
 
-    public static function recupererCommentaireParIdFilm($idFilm)
+    public static function recupererListeCommentaireParIdFilm($idFilm)
     {
 
         $connexion = BaseDeDonnees::getInstance()->getConnexion();
@@ -49,9 +49,9 @@ class CommentaireDAO implements CommentaireSQL
 
         for ($i = o; $i < count($commentaires); $i++) {
             $listeCommentaire[$i] = new commentaire($commentaires[$i]['id'],
-                $commentaires['idUtilisateur'],
-                $commentaires['idFilm'],
-                $commentaires['text']);
+                $commentaires[$i]['idUtilisateur'],
+                $commentaires[$i]['idFilm'],
+                $commentaires[$i]['text']);
         }
         return new $listeCommentaire;
     }

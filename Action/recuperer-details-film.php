@@ -3,7 +3,7 @@
 include "../Donnee/FilmDAO.php";
 
 if (isset($_GET['idFilm'])) {
-    
+
     $idFilm = $_GET['idFilm'];
 
     $film = FilmDAO::detaillerFilm($idFilm);
