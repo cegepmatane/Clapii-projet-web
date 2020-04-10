@@ -68,8 +68,8 @@ class CommentaireDAO implements CommentaireSQL
         $commentaire = $demandeCommentaire->fetch(PDO::FETCH_ASSOC);
 
         return new commentaire($commentaire['id'],
-            $commentaire['idUtilisateur'],
-            $commentaire['idFilm'],
+            $commentaire['id_utilisateur'],
+            $commentaire['id_film'],
             $commentaire['text']);
     }
 
