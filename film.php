@@ -194,7 +194,13 @@ $film = FilmDAO::detaillerFilm($idFilm);
                xhttp.onreadystatechange = function() {
                    if (this.readyState == 4 && this.status == 200) {
                        var commentaireXML = this.responseText;
-                       console.log(commentaireXML);
+
+                       parser = new DOMParser();
+                       xmlDoc = parser.parseFromString(commentaireXML,"text/xml");
+
+                       var text = xmlDoc.getElementsByTagName("text")[0].childNodes[0].nodeValue;
+
+                       document.getElementById("commentaire").value = text;
                    }
                };
                xhttp.open("GET", "Action/recuperer-commentaire.php?id_film="+idFilm+"&id_utilisateur="+idUtilisateur, true);
