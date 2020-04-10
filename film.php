@@ -2,6 +2,7 @@
 
 include "./Ressources/header.php";
 include "./Donnee/FilmDAO.php";
+include "./Donnee/CommentaireDAO.php";
 
 $idFilm = $_GET['id'];
 $film = FilmDAO::detaillerFilm($idFilm);
@@ -168,32 +169,41 @@ $film = FilmDAO::detaillerFilm($idFilm);
 
     </div>
     <a href="liste_film.php" class="brown lighten-2 btn"><i class="material-icons left">arrow_back</i>Retour</a>
-
+    <input type= hidden name="idFilm" value=<?= $idFilm?> >
+    <?php if(isset($_SESSION['id'])):?>
+        <input type=hidden name="idUtilisateur" value=<?php echo $_SESSION['id'] ?>>
+        <input type=hidden name="Commentaire" value=<?php echo  CommentaireDAO::recupererCommentaireParIdUtilisateurEtIdFilm( $_SESSION['id'], $_GET['id']); ?>>
+    <?php endif; ?>
 <script>
     function toggleCommentaire(){
-
-        if(document.getElementById("listerCommentaires").style.display == "none"){
-            document.getElementById("ecrireCommentaire").style.display="none";
-            document.getElementById("resultats").style.display="block";
-            document.getElementById("bouton").innerHTML="Commenter";
-            document.getElementById("com").innerHTML="Commentaires";
-            document.getElementById("listerCommentaires").style.display="block";
-            console.log("none");
-        }
-        else if(document.getElementById("listerCommentaires").style.display == "block"){
-            document.getElementById("listerCommentaires").style.display="none";
-            document.getElementById("resultats").style.display="none";
-            document.getElementById("bouton").innerHTML="Annuler";
-            document.getElementById("com").innerHTML="Commentaire";
-            document.getElementById("ecrireCommentaire").style.display="block";
-            console.log("!none");
-        }
+       if(document.getElementsByName("idUtilisateur").length==0){
+           alert("Connectez-vous pour commenter.");
+       }else{
+           if(document.getElementById("listerCommentaires").style.display == "none"){
+               document.getElementById("ecrireCommentaire").style.display="none";
+               document.getElementById("resultats").style.display="block";
+               document.getElementById("bouton").innerHTML="Commenter";
+               document.getElementById("com").innerHTML="Commentaires";
+               document.getElementById("listerCommentaires").style.display="block";
+               console.log("none");
+           }
+           else if(document.getElementById("listerCommentaires").style.display == "block"){
+               document.getElementById("listerCommentaires").style.display="none";
+               document.getElementById("resultats").style.display="none";
+               document.getElementById("bouton").innerHTML="Annuler";
+               document.getElementById("com").innerHTML="Commentaire";
+               document.getElementById("ecrireCommentaire").style.display="block";
+               console.log("!none");
+           }
+       }
 
     }
 
     function envoyerCommentaire(){
+
         var com = document.getElementById("commentaire").value;
-        var film = <?php echo $_GET['id']?>;
+        var idFilm = document.getElementsByName("idFilm")[0].value;
+        var idUtilisateur = document.getElementsByName("idUtilisateur")[0].value;
 
         var xhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
         xhttp.open("POST", "/Clapii-projet-web/Action/traitement-ajouter-commentaire.php", true);
@@ -201,9 +211,11 @@ $film = FilmDAO::detaillerFilm($idFilm);
             if (xhttp.readyState>3 && xhttp.status==200) { console.log(xhttp.responseText);}
         };
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("id_utilisateur=1&id_film="+film+"&text="+com);
+        xhttp.send("id_utilisateur="+idUtilisateur+"&id_film="+idFilm+"&text="+com);
 
     }
+
+
 
 </script>
 

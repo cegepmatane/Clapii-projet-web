@@ -76,5 +76,17 @@ class CommentaireDAO implements CommentaireSQL
         }
         return new $listeCommentaire;
     }
+
+    public static function modifierCommentaireParId($idCommentaire, $commentaire)
+    {
+
+        $connexion = BaseDeDonnees::getInstance()->getConnexion();
+        $demandeCommentaire = $connexion->prepare(self::UPDATE_COMMENTAIRE_BY_ID);
+        $demandeCommentaire->bindParam(':id', $idCommentaire, PDO::PARAM_INT);
+        $demandeCommentaire->bindParam(':text', $commentaire, PDO::PARAM_STR);
+        $demandeCommentaire->execute();
+
+
+    }
 }
 
