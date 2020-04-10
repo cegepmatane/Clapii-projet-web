@@ -195,10 +195,14 @@ $film = FilmDAO::detaillerFilm($idFilm);
         var com = document.getElementById("commentaire").value;
         var film = <?php echo $_GET['id']?>;
 
-        var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "Action/traitement-ajouter-commentaire.php", true);
+        var xhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+        xhttp.open("POST", "/Clapii-projet-web/Action/traitement-ajouter-commentaire.php", true);
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState>3 && xhttp.status==200) { console.log(xhttp.responseText);}
+        };
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("id_utilisateur=1&id_film="+film+"&text="+com);
+
     }
 
 </script>
