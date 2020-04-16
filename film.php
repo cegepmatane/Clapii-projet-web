@@ -154,7 +154,7 @@ $film = FilmDAO::detaillerFilm($idFilm);
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col s9 offset-s6"><a class="waves-effect waves-light btn" onclick="envoyerCommentaire()"><i class="material-icons right">send</i>Envoyer</a></div>
+                                    <div class="col s9 offset-s6"><a class="waves-effect waves-light btn" id="envoie" onclick="envoyerCommentaire()"><i class="material-icons right">send</i>Envoyer</a></div>
                                 </div>
                             </form>
 
@@ -193,14 +193,17 @@ $film = FilmDAO::detaillerFilm($idFilm);
                var xhttp = new XMLHttpRequest();
                xhttp.onreadystatechange = function() {
                    if (this.readyState == 4 && this.status == 200) {
-                       var commentaireXML = this.responseText;
+                       if(this.responseText!=-1){
+                           var commentaireXML = this.responseText;
 
-                       parser = new DOMParser();
-                       xmlDoc = parser.parseFromString(commentaireXML,"text/xml");
+                           parser = new DOMParser();
+                           xmlDoc = parser.parseFromString(commentaireXML,"text/xml");
 
-                       var text = xmlDoc.getElementsByTagName("text")[0].childNodes[0].nodeValue;
+                           var text = xmlDoc.getElementsByTagName("text")[0].childNodes[0].nodeValue;
 
-                       document.getElementById("commentaire").value = text;
+                           document.getElementById("commentaire").value = text;
+                       }
+
                    }
                };
                xhttp.open("GET", "Action/recuperer-commentaire.php?id_film="+idFilm+"&id_utilisateur="+idUtilisateur, true);
@@ -223,6 +226,34 @@ $film = FilmDAO::detaillerFilm($idFilm);
         var idFilm = document.getElementsByName("idFilm")[0].value;
         var idUtilisateur = document.getElementsByName("idUtilisateur")[0].value;
 
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                if(this.responseText==-1){
+                    nouveauCommentaire(idFilm,idUtilisateur,com);
+                }else{
+                    modifierCommentaire(idFilm,idUtilisateur,com);
+                }
+                toggleCommentaire();
+            }
+        };
+        var reponse = xhttp.open("GET", "Action/recuperer-commentaire.php?id_film="+idFilm+"&id_utilisateur="+idUtilisateur, true);
+        xhttp.send();
+/**
+        xhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+        xhttp.open("POST", "/Clapii-projet-web/Action/traitement-ajouter-commentaire.php", true);
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState>3 && xhttp.status==200) { console.log(xhttp.responseText);}
+        };
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("id_utilisateur="+idUtilisateur+"&id_film="+idFilm+"&text="+com);
+
+        toggleCommentaire();
+ **/
+
+    }
+
+    function nouveauCommentaire(idFilm,idUtilisateur,com) {
         var xhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
         xhttp.open("POST", "/Clapii-projet-web/Action/traitement-ajouter-commentaire.php", true);
         xhttp.onreadystatechange = function() {
@@ -231,6 +262,16 @@ $film = FilmDAO::detaillerFilm($idFilm);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("id_utilisateur="+idUtilisateur+"&id_film="+idFilm+"&text="+com);
 
+    }
+
+    function modifierCommentaire(idFilm,idUtilisateur,com){
+        var xhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+        xhttp.open("POST", "/Clapii-projet-web/Action/traitement-modification-commentaire.php", true);
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState>3 && xhttp.status==200) { console.log(xhttp.responseText);}
+        };
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("id_utilisateur="+idUtilisateur+"&id_film="+idFilm+"&text="+com);
     }
 
 
