@@ -84,5 +84,13 @@ class CommentaireDAO implements CommentaireSQL
 
 
     }
+
+    public static function supprimerCommentaireParId($idCommentaire)
+    {
+        $connexion = BaseDeDonnees::getInstance()->getConnexion();
+        $demandeCommentaire = $connexion->prepare(self::DELETE_COMMENTAIRE_BY_ID);
+        $demandeCommentaire->bindParam(':id', $idCommentaire, PDO::PARAM_INT);
+        $demandeCommentaire->execute();
+    }
 }
 

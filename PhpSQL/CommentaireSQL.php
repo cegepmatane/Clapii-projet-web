@@ -8,4 +8,5 @@ interface CommentaireSQL
     public const INSERT_COMMENTAIRE_BY_ID_UTILISATEUR_ID_FILM_TEXT = "INSERT INTO commentaire( id_utilisateur, id_film, text) VALUES ( :id_utilisateur, :id_film, :text)";
     public const SELECT_COMMENTAIRE_BY_ID_UTILISATEUR_ID_FILM = "SELECT * FROM commentaire WHERE id_film = :id_film AND id_utilisateur = :id_utilisateur";
     public const UPDATE_COMMENTAIRE_BY_ID = "UPDATE commentaire SET text = :text WHERE id = :id";
+    public const DELETE_COMMENTAIRE_BY_ID = "DELETE FROM commentaire WHERE id = :id";
 }

@@ -56,24 +56,27 @@ $film = FilmDAO::detaillerFilm($idFilm);
         }
 
         function envoyerCommentaire(){
+            if(document.getElementById("commentaire").value!=''){
+                var com = document.getElementById("commentaire").value;
+                var idFilm = document.getElementsByName("idFilm")[0].value;
+                var idUtilisateur = document.getElementsByName("idUtilisateur")[0].value;
 
-            var com = document.getElementById("commentaire").value;
-            var idFilm = document.getElementsByName("idFilm")[0].value;
-            var idUtilisateur = document.getElementsByName("idUtilisateur")[0].value;
-
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    if(this.responseText==-1){
-                        nouveauCommentaire(idFilm,idUtilisateur,com);
-                    }else{
-                        modifierCommentaire(idFilm,idUtilisateur,com);
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        if(this.responseText==-1){
+                            nouveauCommentaire(idFilm,idUtilisateur,com);
+                        }else{
+                            modifierCommentaire(idFilm,idUtilisateur,com);
+                        }
+                        toggleCommentaire();
                     }
-                    toggleCommentaire();
-                }
-            };
-            var reponse = xhttp.open("GET", "Action/recuperer-commentaire.php?id_film="+idFilm+"&id_utilisateur="+idUtilisateur, true);
-            xhttp.send();
+                };
+                var reponse = xhttp.open("GET", "Action/recuperer-commentaire.php?id_film="+idFilm+"&id_utilisateur="+idUtilisateur, true);
+                xhttp.send();
+            }else{
+                alert("Le commentaire est vide.");
+            }
 
         }
 
@@ -85,7 +88,6 @@ $film = FilmDAO::detaillerFilm($idFilm);
             };
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send("id_utilisateur="+idUtilisateur+"&id_film="+idFilm+"&text="+com);
-
         }
 
         function modifierCommentaire(idFilm,idUtilisateur,com){
@@ -117,6 +119,9 @@ $film = FilmDAO::detaillerFilm($idFilm);
                             document.getElementById("commentaireEnregistre").style.display="block";
                             document.getElementById("pseudo").textContent=document.getElementsByName("pseudoUtilisateur")[0].value;
                             document.getElementsByClassName("votreCommentaire")[0].style.display="block";
+                        }else{
+                            document.getElementsByClassName("votreCommentaire")[0].style.display="none";
+                            document.getElementById("commentaire").value = null;
                         }
 
                     }
@@ -126,7 +131,27 @@ $film = FilmDAO::detaillerFilm($idFilm);
             }else{
                 document.getElementById("commentaireEnregistre").style.display="none";
             }
+        }
 
+        function suppressionCommentaire(){
+
+            var suppression = confirm("Etes-vous sûr de vouloir supprimer votre commentaire ?");
+            if(suppression){
+                console.log("A supprimer");
+                var idFilm = document.getElementsByName("idFilm")[0].value;
+                var idUtilisateur = document.getElementsByName("idUtilisateur")[0].value;
+                var xhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+                xhttp.open("POST", "/Clapii-projet-web/Action/traitement-suppression-commentaire.php", true);
+                xhttp.onreadystatechange = function() {
+                    if (xhttp.readyState>3 && xhttp.status==200) { console.log(xhttp.responseText);}
+                };
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send("id_utilisateur="+idUtilisateur+"&id_film="+idFilm);
+                console.log(xhttp.responseText);
+                monCommentaire();
+            }else{
+                console.log("Annuler");
+            }
         }
 
 
@@ -173,7 +198,7 @@ $film = FilmDAO::detaillerFilm($idFilm);
         <div class="container" >
             <div class="card grey lighten-4">
                 <div class="card-content brown-text text-darken-3">
-                    <span class="card-title" >Votre commentaire</span>
+                    <span class="card-title" >Mon commentaire</span>
                     <div id="commentaireEnregistre" style="display: block;">
                         <ul class="collection">
                             <li class="collection-item">
@@ -184,6 +209,10 @@ $film = FilmDAO::detaillerFilm($idFilm);
                                     <div class="col s10">
                                         <b id="pseudo"></b>
                                         <p id="monCommentaire">  </p>
+                                    </div>
+                                    <div class="col s2">
+                                        <a class="waves-effect waves-teal btn-flat" onclick="toggleCommentaire()"><i class="material-icons">create</i></a>
+                                        <a class="waves-effect waves-teal btn-flat" onclick="suppressionCommentaire()"><i class="material-icons">delete</i></a>
                                     </div>
 
                                 </div>
