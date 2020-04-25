@@ -3,9 +3,11 @@
 include "./Ressources/header.php";
 include "./Donnee/FilmDAO.php";
 include "./Donnee/CommentaireDAO.php";
+include "./Donnee/UtilisateurDAO.php";
 
 $idFilm = $_GET['id'];
 $film = FilmDAO::detaillerFilm($idFilm);
+$commentaires = CommentaireDAO::recupererListeCommentaireParIdFilm($idFilm);
 
 ?>
     <script>
@@ -249,20 +251,16 @@ $film = FilmDAO::detaillerFilm($idFilm);
                     <span class="card-title">Commentaires</span>
                     <div >
                         <ul class="collection">
+
+                            <?php for ($i = 0; $i < count($commentaires); $i ++) : ?>
                             <li class="collection-item">
                                 <div class="row valign-wrapper">
                                     <div class="col s2">
                                         <img class="thumbnail" src="Ressources/Images/PlaceHolder.jpg">
                                     </div>
                                     <div class="col s8">
-                                        <b>Pseudo</b>
-                                        <p style="text-align:justify">Etiam lectus eros, vestibulum eu iaculis non, tempor
-                                            vitae eros. Nullam vitae scelerisque dolor.
-                                            Curabitur sollicitudin facilisis lectus. Suspendisse potenti. Fusce sit amet
-                                            diam nulla. Ut et aliquet lorem.
-                                            Quisque sit amet nisi est. Donec et ipsum ut elit finibus molestie. Ut ac metus
-                                            quis est feugiat gravida ac
-                                            in felis. Duis a justo nisl. In condimentum convallis mattis. </p>
+                                        <b><?=UtilisateurDAO::recupererUtilisateurParId($commentaires[$i]->getIdUtilisateur())->getPseudo();?></b>
+                                        <p style="text-align:justify"><?=$commentaires[$i]->getText();?></p>
                                     </div>
                                     <div class="col s3">
                                         <i class="material-icons">movie_filter</i>
@@ -279,66 +277,8 @@ $film = FilmDAO::detaillerFilm($idFilm);
                                     </div>
                                 </div>
                             </li>
-                            <li class="collection-item">
-                                <div class="row valign-wrapper">
-                                    <div class="col s2">
-                                        <img class="thumbnail" src="Ressources/Images/PlaceHolder.jpg">
-                                    </div>
-                                    <div class="col s8">
-                                        <b>Pseudo</b>
-                                        <p style="text-align:justify">Etiam lectus eros, vestibulum eu iaculis non, tempor
-                                            vitae eros. Nullam vitae scelerisque dolor.
-                                            Curabitur sollicitudin facilisis lectus. Suspendisse potenti. Fusce sit amet
-                                            diam nulla. Ut et aliquet lorem.
-                                            Quisque sit amet nisi est. Donec et ipsum ut elit finibus molestie. Ut ac metus
-                                            quis est feugiat gravida ac
-                                            in felis. Duis a justo nisl. In condimentum convallis mattis. </p>
-                                    </div>
-                                    <div class="col s3">
-                                        <i class="material-icons">movie_filter</i>
-                                        <i class="material-icons">movie_filter</i>
-                                        <i class="material-icons">movie_filter</i>
-                                        <i class="material-icons">movie_filter</i>
-                                        <i class="material-icons">movie_filter</i>
-                                    </div>
-                                    <div class="col s1">
-                                        <div><a class="waves-effect waves-teal btn-flat"><i class="material-icons">arrow_upward</i></a>
-                                        </div>
-                                        <div><a class="waves-effect waves-teal btn-flat"><i class="material-icons">arrow_downward</i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="collection-item">
-                                <div class="row valign-wrapper">
-                                    <div class="col s2">
-                                        <img class="thumbnail" src="Ressources/Images/PlaceHolder.jpg">
-                                    </div>
-                                    <div class="col s8">
-                                        <b>Pseudo</b>
-                                        <p style="text-align:justify">Etiam lectus eros, vestibulum eu iaculis non, tempor
-                                            vitae eros. Nullam vitae scelerisque dolor.
-                                            Curabitur sollicitudin facilisis lectus. Suspendisse potenti. Fusce sit amet
-                                            diam nulla. Ut et aliquet lorem.
-                                            Quisque sit amet nisi est. Donec et ipsum ut elit finibus molestie. Ut ac metus
-                                            quis est feugiat gravida ac
-                                            in felis. Duis a justo nisl. In condimentum convallis mattis. </p>
-                                    </div>
-                                    <div class="col s3">
-                                        <i class="material-icons">movie_filter</i>
-                                        <i class="material-icons">movie_filter</i>
-                                        <i class="material-icons">movie_filter</i>
-                                        <i class="material-icons">movie_filter</i>
-                                        <i class="material-icons">movie_filter</i>
-                                    </div>
-                                    <div class="col s1">
-                                        <div><a class="waves-effect waves-teal btn-flat"><i class="material-icons">arrow_upward</i></a>
-                                        </div>
-                                        <div><a class="waves-effect waves-teal btn-flat"><i class="material-icons">arrow_downward</i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                            <?php endfor; ?>
+
                         </ul>
                     </div>
 
@@ -350,7 +290,6 @@ $film = FilmDAO::detaillerFilm($idFilm);
 
         </div>
     </div>
-
 
 
     <a href="liste_film.php" class="brown lighten-2 btn"><i class="material-icons left">arrow_back</i>Retour</a>

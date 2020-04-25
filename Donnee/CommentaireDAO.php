@@ -26,7 +26,7 @@ class CommentaireDAO implements CommentaireSQL
 
         $commentaires = $demandeCommentaire->fetchALL(PDO::FETCH_ASSOC);
 
-        for ($i = o; $i < count($commentaires); $i++) {
+        for ($i = 0; $i < count($commentaires); $i++) {
             $listeCommentaire[$i] = new commentaire($commentaires[$i]['id'],
                 $commentaires[$i]['idUtilisateur'],
                 $commentaires[$i]['idFilm'],
@@ -46,14 +46,14 @@ class CommentaireDAO implements CommentaireSQL
 
         $commentaires = $demandeCommentaire->fetchALL(PDO::FETCH_ASSOC);
 
-
-        for ($i = o; $i < count($commentaires); $i++) {
-            $listeCommentaire[$i] = new commentaire($commentaires[$i]['id'],
-                $commentaires[$i]['idUtilisateur'],
-                $commentaires[$i]['idFilm'],
+        $listeCommentaires = array();
+        for ($i = 0; $i < count($commentaires); $i++) {
+            $listeCommentaires[$i] = new commentaire($commentaires[$i]['id'],
+                $commentaires[$i]['id_utilisateur'],
+                $commentaires[$i]['id_film'],
                 $commentaires[$i]['text']);
         }
-        return new $listeCommentaire;
+        return $listeCommentaires;
     }
 
     public static function recupererCommentaireParIdUtilisateurEtIdFilm($idUtilisateur, $idFilm)

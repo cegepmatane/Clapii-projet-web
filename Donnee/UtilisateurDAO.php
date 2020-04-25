@@ -81,4 +81,25 @@ class UtilisateurDAO implements UtilisateurSQL
         $demandeUtilisateur->execute();
     }
 
+    public static function recupererUtilisateurParId($id){
+        $connexion = BaseDeDonnees::getInstance()->getConnexion();
+        $demandeUtilisateur = $connexion->prepare(self::SELECT_UTILISATEUR_BY_ID);
+        $demandeUtilisateur->bindParam(':id', $id, PDO::PARAM_INT);
+        $demandeUtilisateur->execute();
+
+        $utilisateur = $demandeUtilisateur->fetch(PDO::FETCH_ASSOC);
+        if($utilisateur!=false){
+            return new Utilisateur(
+                $utilisateur['id'],
+                $utilisateur['pseudo'],
+                $utilisateur['nom'],
+                $utilisateur['prenom'],
+                $utilisateur['mail'],
+                $utilisateur['password']);
+        }
+        else{
+            return $utilisateur;
+        }
+    }
+
 }
