@@ -14,9 +14,14 @@ if (isset($_POST['pseudo'], $_POST['password']))
         $_SESSION['id'] = $utilisateur->getId();
         $_SESSION['pseudo'] = $utilisateur->getPseudo();
         $_SESSION['mail'] = $utilisateur->getMail();
-        echo "<etat>1</etat>";
+        echo "<requette>".
+                "<etat>1</etat>".
+                "<pseudo>.$utilisateur->getPseudo().</pseudo>".
+             "</requette>";
     }else{
-        echo "<etat>0</etat>";
+        echo "<requette>".
+                "<etat>0</etat>".
+             "</requette>";
     }
 
 }
