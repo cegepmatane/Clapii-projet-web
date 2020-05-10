@@ -72,6 +72,7 @@ $commentaires = CommentaireDAO::recupererListeCommentaireParIdFilm($idFilm);
                             modifierCommentaire(idFilm,idUtilisateur,com);
                         }
                         toggleCommentaire();
+                        monCommentaire();
                     }
                 };
                 var reponse = xhttp.open("GET", "Action/recuperer-commentaire.php?id_film="+idFilm+"&id_utilisateur="+idUtilisateur, true);
@@ -145,12 +146,12 @@ $commentaires = CommentaireDAO::recupererListeCommentaireParIdFilm($idFilm);
                 var xhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
                 xhttp.open("POST", "/Clapii-projet-web/Action/traitement-suppression-commentaire.php", true);
                 xhttp.onreadystatechange = function() {
-                    if (xhttp.readyState>3 && xhttp.status==200) { console.log(xhttp.responseText);}
+                    if (xhttp.readyState>3 && xhttp.status==200) { console.log(xhttp.responseText);monCommentaire();}
                 };
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xhttp.send("id_utilisateur="+idUtilisateur+"&id_film="+idFilm);
                 console.log(xhttp.responseText);
-                monCommentaire();
+
             }else{
                 console.log("Annuler");
             }
