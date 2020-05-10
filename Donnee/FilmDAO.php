@@ -30,7 +30,6 @@ class FilmDAO implements FilmSQL
 			$demandeFilm = $connexion->prepare(self::SELECT_FILM_BY_ID);
 			$demandeFilm->bindParam(':id', $id, PDO::PARAM_INT);
 			$demandeFilm->execute();
-			//$contrat = $demandeContrat->fetchAll(PDO::FETCH_OBJ)[0];
 			$film = $demandeFilm->fetch(PDO::FETCH_ASSOC);
 			return new Film($film['id'],
             $film['titre'],

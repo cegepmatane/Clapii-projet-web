@@ -18,9 +18,15 @@ echo count($films);
 
                     <?php for ($j = $i; $j < count($films) || $j < $i += 4; $j++) : ?>
                         <div class="col s3 ">
-                            <div id="simple<?= $films[$i]->getId(); ?>" class="card" style="visibility: visible">
+                            <div id="<?= $films[$j]->getId(); ?>" class="card" >
                                 <div class="card-image">
                                     <img class="" src="./Ressources/Images/PlaceHolder.jpg">
+                                    <span class="card-title"><?= $films[$j]->getTitre(); ?></span>
+                                </div>
+                                <div class="card-content" style="display: none">
+                                    <div class="filmDate"></div>
+                                    <div class="filmSysnopsis"></div>
+
                                 </div>
                             </div>
                         </div>
@@ -40,17 +46,18 @@ echo count($films);
 
     function ajouterMouseOverEtOut(item, index) {
         item.onmouseover = function () {
-            mouseOver(item.id);
-            document.getElementById(item.id).className = "card horizontal m4";
-        };
+            let cardContent = document.getElementById(item.id).getElementsByClassName('card-content')[0];
+            cardContent.style = ""
+            mouseOver(item.id, cardContent);
+         };
 
         item.onmouseout = function () {
             mouseOut(item.id);
-            document.getElementById(item.id).className = "card";
+            document.getElementById(item.id).getElementsByClassName('card-content')[0].style.display = "none";
         };
     }
 
-    function mouseOver(id) {
+    function mouseOver(id, cardContent) {
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -58,7 +65,7 @@ echo count($films);
                 var filmXML = this.responseText;
                 console.log(filmXML);
 
-                afficherFilmDetail(filmXML);
+                afficherFilmDetail(filmXML, cardContent);
             }
         };
         xhttp.open("GET", "Action/recuperer-details-film.php?idFilm=" + id, true);
@@ -73,15 +80,16 @@ echo count($films);
 
     }
 
-    function afficherFilmDetail(filmXML) {
+    function afficherFilmDetail(filmXML, cardContent) {
 
         parser = new DOMParser();
         xmlDoc = parser.parseFromString(filmXML, "text/xml");
 
-        var titre = xmlDoc.getElementsByTagName("titre")[0].childNodes[0].nodeValue;
+
         var date = xmlDoc.getElementsByTagName("date")[0].childNodes[0].nodeValue;
+        cardContent.getElementsByClassName("filmDate")[0].innerHTML= date;
         var synopsis = xmlDoc.getElementsByTagName("synopsis")[0].childNodes[0].nodeValue;
-        var id = xmlDoc.getElementsByTagName("film")[0].id;
+        cardContent.getElementsByClassName("filmSysnopsis")[0].innerHTML= synopsis;
 
 
     }
