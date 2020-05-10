@@ -252,7 +252,7 @@ $commentaires = CommentaireDAO::recupererListeCommentaireParIdFilm($idFilm);
                     <div >
                         <ul class="collection">
 
-                            <?php for ($i = 0; $i < count($commentaires); $i ++) : ?>
+                            <?php if(count($commentaires)>0):for ($i = 0; $i < count($commentaires); $i ++) : ?>
                             <li class="collection-item">
                                 <div class="row valign-wrapper">
                                     <div class="col s2">
@@ -277,7 +277,16 @@ $commentaires = CommentaireDAO::recupererListeCommentaireParIdFilm($idFilm);
                                     </div>
                                 </div>
                             </li>
-                            <?php endfor; ?>
+                            <?php endfor; else :?>
+                                <li class="collection-item">
+                                    <div class="row valign-wrapper">
+                                        <div class="col s8">
+                                            <b>Pas encore de commentaire</b>
+                                            <p style="text-align:justify">Soyez le premier à commenter ce film !</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            <?php endif;?>
 
                         </ul>
                     </div>
