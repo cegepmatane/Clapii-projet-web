@@ -13,12 +13,14 @@ if (isset($_POST['pseudo'], $_POST['password']))
     if ($utilisateur!=false){
         $_SESSION['id'] = $utilisateur->getId();
         $_SESSION['pseudo'] = $utilisateur->getPseudo();
+        $_SESSION['mail'] = $utilisateur->getMail();
+        echo "<etat>1</etat>";
     }else{
-        $parametres.='mauvaisCredentials=true';
+        echo "<etat>0</etat>";
     }
 
 }
 
-header('Location: ../inscription_connexion.php?'.$parametres);
-exit;
+//header('Location: ../inscription_connexion.php?'.$parametres);
+//exit;
 ?>
