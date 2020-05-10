@@ -10,7 +10,7 @@ if( isset($_SESSION['id'])){
     <div class=container>
 
         <div class="row">
-            <form class="col s6" method="post" action="Action/traitement-connexion.php">
+            <form class="col s6" method="post">
 
                 <div class="card-panel grey lighten-5 z-depth-1">
 
@@ -25,7 +25,7 @@ if( isset($_SESSION['id'])){
                         </div>
 
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Se connecter
+                    <button class="btn waves-effect waves-light" type="submit" name="action" onclick="requetteConnexion()">Se connecter
                         <i class="material-icons right">send</i>
                     </button>
                 </div>
@@ -81,6 +81,10 @@ if( isset($_SESSION['id'])){
     </div>
 
 <script>
-    // clement met ton ajax ici
+
+    function requetteConnexion(){
+
+    }
+
 </script>
 
