@@ -17,7 +17,6 @@ $commentaires = CommentaireDAO::recupererListeCommentaireParIdFilm($idFilm);
             }else{
                 if(document.getElementsByClassName("listeCommentaires")[0].style.display == "none"){
                     document.getElementById("ecrireCommentaire").style.display="none";
-                    document.getElementById("resultats").style.display="block";
                     document.getElementById("bouton").innerHTML="Commenter";
                     document.getElementsByClassName("listeCommentaires")[0].style.display="block";
                     console.log("none");
@@ -46,7 +45,6 @@ $commentaires = CommentaireDAO::recupererListeCommentaireParIdFilm($idFilm);
                     xhttp.send();
 
                     document.getElementsByClassName("listeCommentaires")[0].style.display="none";
-                    document.getElementById("resultats").style.display="none";
                     document.getElementById("bouton").innerHTML="Annuler";
                     document.getElementsByClassName("votreCommentaire")[0].style.display="block";
                     document.getElementById("ecrireCommentaire").style.display="block";
@@ -292,9 +290,6 @@ $commentaires = CommentaireDAO::recupererListeCommentaireParIdFilm($idFilm);
                         </ul>
                     </div>
 
-                </div>
-                <div class="card-action" id="resultats">
-                    <a href="#">Plus de résultats</a>
                 </div>
             </div>
 
