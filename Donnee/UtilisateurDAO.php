@@ -15,7 +15,6 @@ class UtilisateurDAO implements UtilisateurSQL
         $demandeUtilisateur->execute();
 
         $utilisateur = $demandeUtilisateur->fetch(PDO::FETCH_ASSOC);
-        var_dump($utilisateur);
         if($utilisateur!=false){
             return new Utilisateur(
                 $utilisateur['id'],

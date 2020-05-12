@@ -9,19 +9,20 @@ if (isset($_POST['pseudo'], $_POST['password']))
     $password = hash('sha512',$_POST["password"]) ;
 
     $utilisateur = UtilisateurDAO::recupererUtilisateur($pseudo, $password);
-    $parametres = '';
     if ($utilisateur!=false){
         $_SESSION['id'] = $utilisateur->getId();
         $_SESSION['pseudo'] = $utilisateur->getPseudo();
         $_SESSION['mail'] = $utilisateur->getMail();
-        echo "<requette>".
+
+        echo "<requete>".
                 "<etat>1</etat>".
-                "<pseudo>.$utilisateur->getPseudo().</pseudo>".
-             "</requette>";
+             "</requete>";
+
     }else{
-        echo "<requette>".
+
+        echo "<requete>".
                 "<etat>0</etat>".
-             "</requette>";
+             "</requete>";
     }
 
 }

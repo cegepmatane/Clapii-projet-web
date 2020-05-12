@@ -62,8 +62,8 @@ echo count($films);
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
+
                 var filmXML = this.responseText;
-                console.log(filmXML);
 
                 afficherFilmDetail(filmXML, cardContent);
             }
@@ -81,10 +81,11 @@ echo count($films);
     }
 
     function afficherFilmDetail(filmXML, cardContent) {
+        console.log(filmXML);
 
-        parser = new DOMParser();
-        xmlDoc = parser.parseFromString(filmXML, "text/xml");
-
+        var parser = new DOMParser();
+        var xmlDoc = parser.parseFromString(filmXML, "text/xml");
+        console.log(xmlDoc);
 
         var date = xmlDoc.getElementsByTagName("date")[0].childNodes[0].nodeValue;
         cardContent.getElementsByClassName("filmDate")[0].innerHTML= date;
