@@ -61,3 +61,6 @@ include "./Ressources/header.php";
     </div>
 </div>
 
+<?php
+include "./Ressources/footer.php";
+?>
